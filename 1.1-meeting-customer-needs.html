@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>1.1 Meeting Customer Needs — Edexcel IAL Business</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4EFE6; --paper-2:#ECE4D4; --ink:#1A1815; --ink-soft:#544E45;
+  --red:#C0341F; --rule:#D8CDB8;
+  --ao1:#1F4E5F; --ao2:#2F6B3A; --ao3:#A8721C; --ao4:#C0341F;
+  --green:#2F6B3A; --amber:#A8721C;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px 120px;}
+.masthead{border-bottom:3px solid var(--ink);padding:48px 0 18px;margin-bottom:8px;}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px;}
+.title-row{display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap;}
+.big-num{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(64px,12vw,108px);line-height:0.8;letter-spacing:-0.02em;}
+.title-text{font-family:'Fraunces',serif;font-weight:600;font-style:italic;font-size:clamp(22px,3.4vw,32px);padding-bottom:8px;}
+.subline{font-size:14px;color:var(--ink-soft);margin-top:10px;}
+.chnav{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap;}
+.chnav a{font-family:'JetBrains Mono',monospace;font-size:11px;padding:6px 11px;border:1px solid var(--rule);text-decoration:none;color:var(--ink-soft);border-radius:2px;}
+.chnav a.cur{border-color:var(--ink);color:var(--ink);background:var(--paper-2);font-weight:700;}
+.tabs{display:flex;gap:0;margin:32px 0 36px;border-bottom:1px solid var(--rule);}
+.tab{font-family:'Fraunces',serif;font-weight:600;font-size:17px;padding:12px 22px 14px;cursor:pointer;background:none;border:none;color:var(--ink-soft);position:relative;letter-spacing:.01em;}
+.tab.active{color:var(--ink);}
+.tab.active::after{content:"";position:absolute;bottom:-1px;left:14px;right:14px;height:3px;background:var(--red);}
+.tab .tnum{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);margin-right:6px;}
+.panel{display:none;}
+.panel.active{display:block;animation:fade .25s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+.subnav{display:flex;gap:10px;margin-bottom:28px;flex-wrap:wrap;}
+.subnav button{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.04em;padding:7px 13px;border:1px solid var(--ink);background:transparent;border-radius:2px;cursor:pointer;color:var(--ink);}
+.subnav button.on{background:var(--ink);color:var(--paper);}
+.section-block{margin-bottom:40px;}
+.section-block h3{font-family:'Fraunces',serif;font-size:22px;font-weight:700;margin:0 0 4px;display:flex;align-items:baseline;gap:10px;}
+.section-block h3 .tag{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--ink);color:var(--paper);padding:2px 7px;border-radius:2px;font-weight:600;}
+.purpose{font-style:italic;color:var(--ink-soft);font-size:14.5px;margin:6px 0 14px;padding-left:14px;border-left:2px solid var(--rule);}
+.section-block ul{margin:10px 0 14px;padding-left:20px;}
+.section-block li{margin-bottom:5px;font-size:15px;}
+.section-block p{font-size:15px;margin:8px 0;}
+.section-block strong{font-weight:700;}
+.formula{font-family:'JetBrains Mono',monospace;font-size:14px;background:var(--paper-2);padding:10px 14px;display:inline-block;}
+table.adv{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:14px;}
+table.adv caption{text-align:left;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);margin-bottom:8px;}
+table.adv th{text-align:left;padding:8px 12px;font-family:'Inter',sans-serif;font-weight:700;border-bottom:2px solid var(--ink);font-size:13px;}
+table.adv th.adv-col{color:var(--ao2);} table.adv th.dis-col{color:var(--ao4);}
+table.adv td{padding:8px 12px;border-bottom:1px solid var(--rule);vertical-align:top;}
+table.simple{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:14px;}
+table.simple th{text-align:left;padding:8px 12px;border-bottom:2px solid var(--ink);font-size:13px;}
+table.simple td{padding:8px 12px;border-bottom:1px solid var(--rule);}
+.keyterms{background:var(--paper-2);border:1px solid var(--rule);padding:20px 22px;margin-top:30px;}
+.keyterms h4{font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px;}
+.keyterms table{width:100%;border-collapse:collapse;font-size:14px;}
+.keyterms td{padding:6px 8px;border-bottom:1px dashed var(--rule);}
+.keyterms td:first-child{font-weight:700;width:38%;}
+.fc-controls{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;flex-wrap:wrap;gap:12px;}
+.fc-filters{display:flex;gap:8px;flex-wrap:wrap;}
+.fc-filters button{font-family:'JetBrains Mono',monospace;font-size:12px;padding:7px 12px;border:1px solid var(--ink);background:transparent;cursor:pointer;border-radius:2px;}
+.fc-filters button.on{background:var(--ink);color:var(--paper);}
+.fc-counter{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft);}
+.fc-stats{display:flex;gap:14px;font-family:'JetBrains Mono',monospace;font-size:11px;margin-bottom:14px;}
+.fc-stats span{display:flex;align-items:center;gap:5px;}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+.card-stage{display:flex;flex-direction:column;align-items:center;gap:18px;}
+.flip-card{width:100%;max-width:520px;height:240px;perspective:1400px;cursor:pointer;}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s cubic-bezier(.2,.7,.3,1);transform-style:preserve-3d;}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg);}
+.face{position:absolute;inset:0;border:2px solid var(--ink);border-radius:4px;display:flex;flex-direction:column;justify-content:center;padding:28px 30px;backface-visibility:hidden;background:var(--paper);}
+.face.back{transform:rotateY(180deg);background:var(--ink);color:var(--paper);}
+.face-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+.face.back .face-label{color:#A89D87;}
+.face-text{font-family:'Fraunces',serif;font-size:21px;font-weight:600;line-height:1.3;}
+.face-hint{position:absolute;bottom:14px;right:18px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);}
+.face.back .face-hint{color:#8a8071;}
+.rate-row{display:none;gap:10px;width:100%;max-width:520px;}
+.rate-row.show{display:flex;}
+.rate-btn{flex:1;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;padding:13px 8px;border:2px solid;border-radius:4px;background:transparent;cursor:pointer;text-align:center;letter-spacing:.02em;}
+.rate-btn.red{color:var(--red);border-color:var(--red);}
+.rate-btn.red:hover{background:var(--red);color:var(--paper);}
+.rate-btn.amber{color:var(--amber);border-color:var(--amber);}
+.rate-btn.amber:hover{background:var(--amber);color:var(--paper);}
+.rate-btn.green{color:var(--green);border-color:var(--green);}
+.rate-btn.green:hover{background:var(--green);color:var(--paper);}
+.fc-nav{display:flex;gap:14px;align-items:center;}
+.fc-nav button{font-family:'JetBrains Mono',monospace;font-size:13px;padding:9px 18px;border:1px solid var(--ink);background:transparent;cursor:pointer;border-radius:2px;}
+.fc-nav button:hover{background:var(--ink);color:var(--paper);}
+.fc-section-pill{font-family:'JetBrains Mono',monospace;font-size:11px;padding:4px 10px;border-radius:10px;color:var(--paper);}
+.deck-done{text-align:center;padding:60px 20px;font-family:'Fraunces',serif;font-size:20px;}
+.q-card{border:1px solid var(--ink);margin-bottom:18px;background:var(--paper);}
+.q-head{padding:18px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;}
+.q-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);margin-bottom:6px;letter-spacing:.04em;}
+.q-scenario{font-size:13px;color:var(--ink-soft);font-style:italic;margin-bottom:8px;}
+.q-text{font-family:'Fraunces',serif;font-size:17px;font-weight:600;}
+.q-marks{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;border:1px solid var(--ink);padding:4px 10px;white-space:nowrap;flex-shrink:0;}
+.q-toggle{font-size:20px;flex-shrink:0;color:var(--ink-soft);}
+.q-body{display:none;padding:4px 20px 24px;border-top:1px dashed var(--rule);}
+.q-card.open .q-body{display:block;}
+.q-card.open .q-toggle{transform:rotate(45deg);}
+.model-label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin:16px 0 8px;}
+.model-answer{font-size:15px;line-height:1.65;}
+.ao-stamps{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
+.stamp{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;border:2px solid;border-radius:50%;width:64px;height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(-6deg);line-height:1.15;}
+.stamp small{font-weight:400;font-size:9px;}
+.stamp.ao1{color:var(--ao1);border-color:var(--ao1);} .stamp.ao2{color:var(--ao2);border-color:var(--ao2);}
+.stamp.ao3{color:var(--ao3);border-color:var(--ao3);} .stamp.ao4{color:var(--ao4);border-color:var(--ao4);}
+@media(max-width:600px){.big-num{font-size:64px;} .flip-card{height:280px;} .q-head{flex-direction:column;} .rate-row{flex-direction:column;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="masthead">
+    <div class="eyebrow">EDEXCEL IAL BUSINESS &middot; UNIT 1 &middot; MARKETING AND PEOPLE</div>
+    <div class="title-row">
+      <div class="big-num">1.1</div>
+      <div class="title-text">Meeting Customer Needs</div>
+    </div>
+    <div class="subline">The market &middot; Market research &middot; Market positioning</div>
+    <div class="chnav"><a href="index.html">&larr; Home</a><a class="cur" href="1.1-meeting-customer-needs.html">1.1</a><a class="" href="1.2-the-market.html">1.2</a><a class="" href="1.3-marketing-mix-strategy.html">1.3</a><a class="" href="1.4-managing-people.html">1.4</a><a class="" href="1.5-entrepreneurs-leaders.html">1.5</a></div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-panel="notes"><span class="tnum">01</span>Notes</button>
+    <button class="tab" data-panel="flashcards"><span class="tnum">02</span>Flashcards</button>
+    <button class="tab" data-panel="practice"><span class="tnum">03</span>Practice</button>
+  </div>
+
+  <div class="panel active" id="panel-notes">
+    <div class="subnav" id="subnav"><button class="on" data-target="s1">1.1.1 The Market</button><button class="" data-target="s2">1.1.2 Market Research</button><button class="" data-target="s3">1.1.3 Market Positioning</button></div>
+    <div id="s1" style="display:block;">
+<div class="section-block"><h3>Mass vs Niche Markets <span class="tag">AO1</span></h3>
+<p><strong>Mass market:</strong> large-scale market aimed at a broad range of customers. High volume, lower prices, intense competition, economies of scale.</p>
+<p><strong>Niche market:</strong> a small, specialised segment of a market with specific needs. Lower volume, higher prices, less competition, easier loyalty.</p>
+<table class="adv"><caption>Niche market strategy</caption><tr><th class="adv-col">Advantages</th><th class="dis-col">Drawbacks</th></tr>
+<tr><td>Less direct competition</td><td>Smaller customer base limits growth/revenue</td></tr>
+<tr><td>Can charge premium prices</td><td>Vulnerable if the niche shrinks/trends change</td></tr>
+<tr><td>Easier to build loyalty &amp; brand identity</td><td>Harder to achieve economies of scale</td></tr></table>
+<table class="adv"><caption>Mass market strategy</caption><tr><th class="adv-col">Advantages</th><th class="dis-col">Drawbacks</th></tr>
+<tr><td>Economies of scale lower unit costs</td><td>Intense competition, often price wars</td></tr>
+<tr><td>Large potential customer base &amp; revenue</td><td>Harder to differentiate and build loyalty</td></tr>
+<tr><td>Brand can become widely recognised</td><td>Lower profit margins per unit</td></tr></table></div>
+
+<div class="section-block"><h3>Market Size &amp; Market Share <span class="tag">AO1</span></h3>
+<p><strong>Market size</strong> = total value or volume of sales within a market.</p>
+<p><strong>Market share</strong> = sales of a business as a % of total market sales.</p>
+<p class="formula">Market share = (business sales &divide; total market sales) &times; 100</p></div>
+
+<div class="section-block"><h3>Dynamic Markets <span class="tag">AO1</span></h3>
+<p>Dynamic markets are markets that change rapidly due to factors such as technology, consumer tastes, competition and regulation.</p>
+<ul><li><strong>Online retailing:</strong> lower overheads, more price transparency, global reach.</li>
+<li><strong>Innovation:</strong> can expand a market or create entirely new ones.</li></ul>
+<table class="adv"><caption>Operating in a dynamic market</caption><tr><th class="adv-col">Advantages</th><th class="dis-col">Drawbacks</th></tr>
+<tr><td>First-movers capture market share quickly</td><td>Constant change increases risk and uncertainty</td></tr>
+<tr><td>Opportunities for innovation, new revenue streams</td><td>Requires ongoing investment to keep up</td></tr>
+<tr><td>Can adapt and find new niches as old ones decline</td><td>Slower competitors may fail and exit suddenly</td></tr></table></div>
+
+<div class="section-block"><h3>Risk vs Uncertainty <span class="tag">AO1</span></h3>
+<p><strong>Risk:</strong> a danger where the probability is known or can be estimated.</p>
+<p><strong>Uncertainty:</strong> a danger where the probability is unknown.</p></div>
+
+<div class="section-block"><h3>Competitive Advantage <span class="tag">AO1</span></h3>
+<p>A factor that allows a business to outperform competitors, such as lower costs, stronger branding, superior quality or better customer service.</p>
+<table class="adv"><caption>Pursuing competitive advantage</caption><tr><th class="adv-col">Advantages</th><th class="dis-col">Drawbacks</th></tr>
+<tr><td>Allows premium pricing, higher margins</td><td>Can be expensive to build</td></tr>
+<tr><td>Builds loyalty, reduces price competition impact</td><td>Competitors may eventually copy/erode it</td></tr>
+<tr><td>Harder for new entrants to compete</td><td>Over-focusing on one advantage leaves gaps elsewhere</td></tr></table></div>
+</div><div id="s2" style="display:none;">
+<div class="section-block"><h3>Purpose of Market Research <span class="tag">AO1</span></h3>
+<p class="purpose">To identify and anticipate customer needs and wants, quantify likely demand, and gain insight into consumer behaviour.</p></div>
+
+<div class="section-block"><h3>Primary vs Secondary Research <span class="tag">AO1</span></h3>
+<p><strong>Primary:</strong> surveys/questionnaires, focus groups, interviews, product trials.</p>
+<p><strong>Secondary:</strong> websites/social media, news/media, reports, databases.</p>
+<table class="adv"><caption>Primary research</caption><tr><th class="adv-col">Advantages</th><th class="dis-col">Drawbacks</th></tr>
+<tr><td>Specific to the business's exact needs</td><td>Expensive and time-consuming</td></tr>
+<tr><td>Up-to-date data</td><td>Requires expertise to design well</td></tr>
+<tr><td>Can be kept confidential from competitors</td><td>Smaller sample sizes than secondary sources</td></tr></table>
+<table class="adv"><caption>Secondary research</caption><tr><th class="adv-col">Advantages</th><th class="dis-col">Drawbacks</th></tr>
+<tr><td>Cheaper and faster to access</td><td>May not be specific to the exact question</td></tr>
+<tr><td>Often large-scale/national data</td><td>Could be outdated by time of use</td></tr>
+<tr><td>Useful before spending on primary research</td><td>Available to competitors too</td></tr></table></div>
+
+<div class="section-block"><h3>Sampling Methods <span class="tag">AO2</span></h3>
+<p class="purpose">To select a smaller group from a population that can give reliable, useful insight into the whole population without surveying everyone.</p>
+<table class="simple"><tr><th>Method</th><th>Strength</th><th>Weakness</th></tr>
+<tr><td>Random</td><td>Less bias</td><td>May not represent all groups</td></tr>
+<tr><td>Quota</td><td>Quick and inexpensive</td><td>Interviewer bias possible</td></tr>
+<tr><td>Stratified</td><td>More representative</td><td>More time-consuming</td></tr></table></div>
+</div><div id="s3" style="display:none;">
+<div class="section-block"><h3>Product vs Market Orientation <span class="tag">AO1</span></h3>
+<p class="purpose">To describe whether a business starts with the product or starts with customer needs.</p>
+<p><strong>Product orientation:</strong> focuses on developing the product it believes is good, less focus on customer wants.</p>
+<p><strong>Market orientation:</strong> researches customer wants first, then designs the product to meet them.</p></div>
+
+<div class="section-block"><h3>Market Mapping <span class="tag">AO2</span></h3>
+<p class="purpose">To visually identify gaps in a market that a business could exploit, by comparing competitors on two key variables.</p>
+<p>A visual tool plotting competitors against two key variables (e.g. price vs quality) to identify gaps in the market.</p></div>
+
+<div class="section-block"><h3>Market Segmentation <span class="tag">AO1</span></h3>
+<p class="purpose">To divide a market into groups of consumers with similar characteristics, so a business can target its product and marketing more effectively.</p>
+<ul><li>Demographics (age, income, gender)</li><li>Geography</li><li>Lifestyle/psychographics</li><li>Behaviour (usage patterns, brand loyalty)</li></ul>
+<table class="adv"><caption>Market segmentation</caption><tr><th class="adv-col">Advantages</th><th class="dis-col">Drawbacks</th></tr>
+<tr><td>More targeted, effective marketing</td><td>Costly to research segments accurately</td></tr>
+<tr><td>Helps identify gaps competitors are missing</td><td>Segments may be too narrow, limiting sales</td></tr>
+<tr><td>Improves customer satisfaction</td><td>Segments need constant re-evaluation</td></tr></table></div>
+
+<div class="section-block"><h3>Product Differentiation <span class="tag">AO1</span></h3>
+<p>Making a product distinct from competitors, reducing direct price competition and building brand loyalty.</p>
+<table class="adv"><caption>Product differentiation</caption><tr><th class="adv-col">Advantages</th><th class="dis-col">Drawbacks</th></tr>
+<tr><td>Reduces direct price competition</td><td>Can be costly (innovation, marketing, design)</td></tr>
+<tr><td>Builds loyalty, reduces price elasticity</td><td>Risk it doesn't appeal to enough customers</td></tr>
+<tr><td>Justifies premium pricing</td><td>Competitors may imitate over time</td></tr></table></div>
+
+<div class="keyterms"><h4>Key terms to know cold</h4><table>
+<tr><td>Market share</td><td>Sales of a business as a % of total market sales</td></tr>
+<tr><td>Niche market</td><td>A small, specialised segment of a wider market</td></tr>
+<tr><td>Primary research</td><td>First-hand data collected for the business's own purpose</td></tr>
+<tr><td>Secondary research</td><td>Data that already exists, collected by someone else</td></tr>
+<tr><td>Market segmentation</td><td>Dividing a market into groups with similar characteristics</td></tr>
+<tr><td>Risk</td><td>A measurable/quantifiable danger</td></tr>
+<tr><td>Uncertainty</td><td>An unmeasurable/unknown danger</td></tr></table></div>
+</div>
+  </div>
+
+  <div class="panel" id="panel-flashcards">
+    <div class="fc-controls">
+      <div class="fc-filters" id="fc-filters"><button class="on" data-sec="all">All</button><button data-sec="A">Section A</button><button data-sec="B">Section B</button><button data-sec="C">Section C</button></div>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <div class="fc-counter" id="fc-counter">Card 1</div>
+        <button id="fc-reset" style="font-family:'JetBrains Mono',monospace;font-size:11px;padding:5px 10px;border:1px solid var(--rule);background:transparent;cursor:pointer;color:var(--ink-soft);border-radius:2px;">Reset progress</button>
+      </div>
+    </div>
+    <div class="fc-stats">
+      <span><span class="dot" style="background:var(--red)"></span>Not remembered: <b id="cnt-red">0</b></span>
+      <span><span class="dot" style="background:var(--amber)"></span>Partial: <b id="cnt-amber">0</b></span>
+      <span><span class="dot" style="background:var(--green)"></span>Mastered: <b id="cnt-green">0</b></span>
+    </div>
+    <div class="card-stage" id="card-stage">
+      <div class="flip-card" id="flip-card">
+        <div class="flip-inner">
+          <div class="face front">
+            <div class="face-label">Question</div>
+            <div class="face-text" id="fc-front">—</div>
+            <div class="face-hint">click to flip</div>
+          </div>
+          <div class="face back">
+            <div class="face-label">Answer</div>
+            <div class="face-text" id="fc-back">—</div>
+            <div class="face-hint">rate your recall below</div>
+          </div>
+        </div>
+      </div>
+      <div class="rate-row" id="rate-row">
+        <button class="rate-btn red" data-r="red">Not remembered</button>
+        <button class="rate-btn amber" data-r="amber">Partially remembered</button>
+        <button class="rate-btn green" data-r="green">Fully remembered</button>
+      </div>
+      <div class="fc-nav">
+        <button id="fc-prev">&larr; Skip back</button>
+        <span class="fc-section-pill" id="fc-pill" style="background:var(--ink);">A</span>
+        <button id="fc-skip">Skip &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" id="panel-practice">
+    <div id="practice-list"></div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.tab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById('panel-'+t.dataset.panel).classList.add('active');
+  });
+});
+
+const subnavTargets = ["s1", "s2", "s3"];
+document.querySelectorAll('#subnav button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('#subnav button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    subnavTargets.forEach(id=>document.getElementById(id).style.display='none');
+    document.getElementById(b.dataset.target).style.display='block';
+  });
+});
+
+/* ---------- FLASHCARDS with self-rating queue + persistence ---------- */
+const STORAGE_KEY = 'biz_revision_1_1_progress';
+const allCards = [{"sec": "A", "f": "What is a mass market?", "b": "A large-scale market aimed at a broad range of customers."}, {"sec": "A", "f": "What is a niche market?", "b": "A small, specialised segment of a wider market."}, {"sec": "A", "f": "What is market size?", "b": "The total value or volume of sales within a market."}, {"sec": "A", "f": "What is market share?", "b": "Sales of a business as a percentage of total market sales."}, {"sec": "A", "f": "Formula for market share.", "b": "(Business sales \u00f7 Total market sales) \u00d7 100"}, {"sec": "A", "f": "What is a brand?", "b": "A name, symbol, or design that distinguishes a business's product from competitors."}, {"sec": "A", "f": "What is a dynamic market?", "b": "A market that changes rapidly due to technology, consumer tastes, competition and regulation."}, {"sec": "A", "f": "What is risk?", "b": "A danger where the probability is known or can be estimated."}, {"sec": "A", "f": "What is uncertainty?", "b": "A danger where the probability is unknown."}, {"sec": "A", "f": "What is primary research?", "b": "First-hand data collected specifically for the business's own purpose."}, {"sec": "A", "f": "What is secondary research?", "b": "Data that already exists, collected by someone else."}, {"sec": "A", "f": "What is random sampling?", "b": "Every member of the population has an equal chance of being selected."}, {"sec": "A", "f": "What is quota sampling?", "b": "Population divided into groups, a set number chosen from each."}, {"sec": "A", "f": "What is stratified sampling?", "b": "Population divided proportionally into groups, randomly sampled within each."}, {"sec": "A", "f": "What is market segmentation?", "b": "Dividing a market into groups of consumers with similar characteristics."}, {"sec": "A", "f": "What is market mapping?", "b": "A visual tool plotting competitors on two variables to find market gaps."}, {"sec": "A", "f": "What is product orientation?", "b": "Business focuses on the product it believes is good, less focus on customer wants."}, {"sec": "A", "f": "What is market orientation?", "b": "Business researches customer wants first, then designs the product."}, {"sec": "A", "f": "What is competitive advantage?", "b": "A factor allowing a business to outperform competitors."}, {"sec": "A", "f": "What is product differentiation?", "b": "Making a product distinct from competitors, reducing price competition."}, {"sec": "A", "f": "What does \"adding value\" mean?", "b": "Increasing perceived worth to justify a higher price."}, {"sec": "B", "f": "One advantage of a niche market?", "b": "Less competition and easier customer loyalty."}, {"sec": "B", "f": "One drawback of a niche market?", "b": "Smaller customer base and lower sales potential."}, {"sec": "B", "f": "One advantage of a mass market?", "b": "Economies of scale lower unit costs."}, {"sec": "B", "f": "One drawback of a mass market?", "b": "Intense competition, often price wars."}, {"sec": "B", "f": "One advantage of primary research?", "b": "Specific to the business's exact needs."}, {"sec": "B", "f": "One drawback of primary research?", "b": "Expensive and time-consuming."}, {"sec": "B", "f": "One advantage of secondary research?", "b": "Cheaper and faster to access."}, {"sec": "B", "f": "One drawback of secondary research?", "b": "May not be specific to the exact question."}, {"sec": "B", "f": "Benefit of random sampling?", "b": "Less bias."}, {"sec": "B", "f": "Drawback of random sampling?", "b": "May not represent all groups."}, {"sec": "B", "f": "Benefit of quota sampling?", "b": "Quick and inexpensive."}, {"sec": "B", "f": "Drawback of quota sampling?", "b": "Interviewer bias possible."}, {"sec": "B", "f": "Benefit of stratified sampling?", "b": "More representative of the population."}, {"sec": "B", "f": "Drawback of stratified sampling?", "b": "More time-consuming and complex to organise."}, {"sec": "C", "f": "Why use market segmentation?", "b": "To target customers more effectively and tailor marketing."}, {"sec": "C", "f": "Purpose of market mapping?", "b": "To visually identify gaps in a market to exploit."}, {"sec": "C", "f": "Purpose of product differentiation?", "b": "To reduce price competition and build loyalty."}, {"sec": "C", "f": "Why do businesses conduct market research?", "b": "To identify customer needs, quantify demand, understand behaviour."}];
+allCards.forEach((c,i)=>{c.id=i; c.status='unrated';});
+
+function loadProgress(){
+  try{
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    allCards.forEach(c=>{ if(saved[c.id]) c.status = saved[c.id]; });
+  }catch(e){}
+}
+function saveProgress(){
+  try{
+    const data = {};
+    allCards.forEach(c=>{ if(c.status!=='unrated') data[c.id]=c.status; });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }catch(e){}
+}
+loadProgress();
+
+let queue = allCards.map(c=>c.id);
+let activeFilter = 'all';
+let pos = 0;
+let flipped = false;
+
+const secColors = {A:'#1F4E5F',B:'#A8721C',C:'#2F6B3A',all:'#1A1815'};
+
+function getQueue(){
+  const base = activeFilter==='all' ? allCards : allCards.filter(c=>c.sec===activeFilter);
+  return base.filter(c=>c.status!=='green').map(c=>c.id);
+}
+
+function updateStats(){
+  document.getElementById('cnt-red').textContent = allCards.filter(c=>c.status==='red').length;
+  document.getElementById('cnt-amber').textContent = allCards.filter(c=>c.status==='amber').length;
+  document.getElementById('cnt-green').textContent = allCards.filter(c=>c.status==='green').length;
+}
+
+function renderCard(){
+  if(queue.length===0){
+    document.getElementById('card-stage').innerHTML = '<div class="deck-done">All cards in this set are mastered. 🎉<br><span style="font-family:JetBrains Mono;font-size:12px;color:var(--ink-soft);">Your progress is saved. Use "Reset progress" above to start over.</span></div>';
+    return;
+  }
+  const c = allCards[queue[0]];
+  document.getElementById('fc-front').textContent = c.f;
+  document.getElementById('fc-back').textContent = c.b;
+  document.getElementById('fc-counter').textContent = `${queue.length} card(s) left in this session`;
+  document.getElementById('fc-pill').textContent = c.sec;
+  document.getElementById('fc-pill').style.background = secColors[c.sec];
+  document.getElementById('flip-card').classList.remove('flipped');
+  document.getElementById('rate-row').classList.remove('show');
+  flipped = false;
+  updateStats();
+}
+
+document.getElementById('flip-card').addEventListener('click',()=>{
+  if(queue.length===0) return;
+  flipped = !flipped;
+  document.getElementById('flip-card').classList.toggle('flipped');
+  if(flipped){ document.getElementById('rate-row').classList.add('show'); }
+  else{ document.getElementById('rate-row').classList.remove('show'); }
+});
+
+document.getElementById('rate-row').addEventListener('click', e=>{
+  const btn = e.target.closest('.rate-btn');
+  if(!btn || queue.length===0) return;
+  const rating = btn.dataset.r;
+  const cardId = queue.shift();
+  allCards[cardId].status = rating;
+  saveProgress();
+  if(rating==='red'){
+    queue.splice(Math.min(2,queue.length),0,cardId); // show again very soon
+  } else if(rating==='amber'){
+    queue.splice(Math.min(6,queue.length),0,cardId); // show again later
+  } // green: removed from session queue entirely
+  renderCard();
+});
+
+document.getElementById('fc-reset').addEventListener('click',()=>{
+  if(!confirm('Reset all flashcard progress for this chapter?')) return;
+  allCards.forEach(c=>c.status='unrated');
+  localStorage.removeItem(STORAGE_KEY);
+  activeFilter='all';
+  document.querySelectorAll('#fc-filters button').forEach(x=>x.classList.remove('on'));
+  document.querySelector('#fc-filters button[data-sec="all"]').classList.add('on');
+  queue = getQueue();
+  renderCard();
+});
+
+document.getElementById('fc-skip').addEventListener('click',()=>{
+  if(queue.length===0) return;
+  const cardId = queue.shift();
+  queue.push(cardId);
+  renderCard();
+});
+document.getElementById('fc-prev').addEventListener('click',()=>{
+  if(queue.length===0) return;
+  const cardId = queue.pop();
+  queue.unshift(cardId);
+  renderCard();
+});
+
+document.getElementById('fc-filters').addEventListener('click', e=>{
+  const btn = e.target.closest('button');
+  if(!btn) return;
+  document.querySelectorAll('#fc-filters button').forEach(x=>x.classList.remove('on'));
+  btn.classList.add('on');
+  activeFilter = btn.dataset.sec;
+  queue = getQueue();
+  renderCard();
+});
+
+queue = getQueue();
+renderCard();
+
+/* ---------- PRACTICE QUESTIONS ---------- */
+const questions = [{"word": "DEFINE", "marks": "2 marks", "scenario": "Zara, a clothing retailer, sells affordable fashion to a broad range of customers.", "q": "Define the term \"mass market.\"", "a": "A mass market is a large-scale market aimed at a broad range of customers.", "ao": [{"c": "ao1", "l": "AO1", "m": "2"}]}, {"word": "EXPLAIN", "marks": "4 marks", "scenario": "Luxe Leather Co. makes handmade leather bags, sold only through boutique stores at premium prices.", "q": "Explain one reason why Luxe Leather Co. might benefit from operating in a niche market.", "a": "One reason is reduced competition. (Point) For example, handmade premium leather bags appeal to a small, specific group of customers. (Example/Scenario) This is because fewer competitors target exactly this segment. (Explain) This allows the business to charge premium prices and build strong loyalty. (Link)", "ao": [{"c": "ao1", "l": "AO1", "m": "1"}, {"c": "ao2", "l": "AO2", "m": "3"}]}, {"word": "ANALYSE", "marks": "6 marks", "scenario": "GreenBrew, a small coffee roaster, expanded its product range based on customer survey data collected in its own stores.", "q": "Analyse the benefits to GreenBrew of using primary research.", "a": "One benefit is that it is specific to the business's exact needs. (Point) By surveying its own customers, GreenBrew collects data directly relevant to its base. (Example/Scenario) This is because questions are designed around its actual range. (Explain) As a result, GreenBrew can make more confident, targeted decisions. (Link) A second benefit is up-to-date data, reducing the risk of launching products based on outdated assumptions.", "ao": [{"c": "ao1", "l": "AO1", "m": "2"}, {"c": "ao2", "l": "AO2", "m": "2"}, {"c": "ao3", "l": "AO3", "m": "2"}]}, {"word": "DISCUSS", "marks": "8 marks", "scenario": "TechNest, a growing electronics startup, is deciding between niche (smart-home for enthusiasts) and mass market positioning.", "q": "Discuss whether TechNest should position itself in a niche or mass market.", "a": "One argument for niche is reduced competition as a specialist. However, mass market could allow economies of scale, lowering unit costs. Given TechNest is a growing startup, niche is likely more suitable short-term, requiring less capital to compete against established mass-market brands.", "ao": [{"c": "ao1", "l": "AO1", "m": "2"}, {"c": "ao2", "l": "AO2", "m": "2"}, {"c": "ao3", "l": "AO3", "m": "2"}, {"c": "ao4", "l": "AO4", "m": "2"}]}, {"word": "ASSESS", "marks": "10 marks", "scenario": "FreshBox, a meal-kit company with a modest budget, operates in a fast-changing food trends market and must choose primary or secondary research.", "q": "Assess whether FreshBox should rely mainly on primary or secondary research.", "a": "Primary research is specific to FreshBox's subscribers, but expensive given its modest budget. Secondary research is cheap and fast but less specific. Judgement: a blended approach is most appropriate \u2014 cheap secondary research to monitor trends, supplemented by small-scale primary research to validate ideas before launch.", "ao": [{"c": "ao1", "l": "AO1", "m": "2"}, {"c": "ao2", "l": "AO2", "m": "2"}, {"c": "ao3", "l": "AO3", "m": "3"}, {"c": "ao4", "l": "AO4", "m": "3"}]}, {"word": "EVALUATE", "marks": "20 marks", "scenario": "Bloom & Co., a niche premium cosmetics brand, is debating expanding into the mass market via supermarkets to grow revenue.", "q": "Evaluate whether Bloom & Co. should expand into the mass market.", "a": "Argument 1: mass market expansion offers significant revenue growth. Counter-argument: this risks diluting the premium brand identity. Argument 2: higher volume could create economies of scale. Counter-argument: this requires risky upfront investment. Judgement: given Bloom & Co.'s competitive advantage is built on premium positioning, a full shift is too risky. A hybrid sub-brand for mass retail would capture growth while protecting the core brand.", "ao": [{"c": "ao1", "l": "AO1", "m": "4"}, {"c": "ao2", "l": "AO2", "m": "5"}, {"c": "ao3", "l": "AO3", "m": "6"}, {"c": "ao4", "l": "AO4", "m": "5"}]}];
+const list = document.getElementById('practice-list');
+questions.forEach((qd,i)=>{
+  const card = document.createElement('div');
+  card.className = 'q-card';
+  card.innerHTML = `
+    <div class="q-head">
+      <div>
+        <div class="q-meta">Q${i+1} &middot; ${qd.word} &middot; ${qd.marks}</div>
+        <div class="q-scenario">${qd.scenario}</div>
+        <div class="q-text">${qd.q}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+        <div class="q-marks">${qd.marks}</div>
+        <div class="q-toggle">+</div>
+      </div>
+    </div>
+    <div class="q-body">
+      <div class="model-label">Model Answer</div>
+      <div class="model-answer">${qd.a}</div>
+      <div class="ao-stamps">
+        ${qd.ao.map(a=>`<div class="stamp ${a.c}">${a.l}<small>${a.m} mk</small></div>`).join('')}
+      </div>
+    </div>
+  `;
+  card.querySelector('.q-head').addEventListener('click',()=>{ card.classList.toggle('open'); });
+  list.appendChild(card);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>1.2 The Market — Edexcel IAL Business</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4EFE6; --paper-2:#ECE4D4; --ink:#1A1815; --ink-soft:#544E45;
+  --red:#C0341F; --rule:#D8CDB8;
+  --ao1:#1F4E5F; --ao2:#2F6B3A; --ao3:#A8721C; --ao4:#C0341F;
+  --green:#2F6B3A; --amber:#A8721C;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px 120px;}
+.masthead{border-bottom:3px solid var(--ink);padding:48px 0 18px;margin-bottom:8px;}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px;}
+.title-row{display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap;}
+.big-num{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(64px,12vw,108px);line-height:0.8;letter-spacing:-0.02em;}
+.title-text{font-family:'Fraunces',serif;font-weight:600;font-style:italic;font-size:clamp(22px,3.4vw,32px);padding-bottom:8px;}
+.subline{font-size:14px;color:var(--ink-soft);margin-top:10px;}
+.chnav{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap;}
+.chnav a{font-family:'JetBrains Mono',monospace;font-size:11px;padding:6px 11px;border:1px solid var(--rule);text-decoration:none;color:var(--ink-soft);border-radius:2px;}
+.chnav a.cur{border-color:var(--ink);color:var(--ink);background:var(--paper-2);font-weight:700;}
+.tabs{display:flex;gap:0;margin:32px 0 36px;border-bottom:1px solid var(--rule);}
+.tab{font-family:'Fraunces',serif;font-weight:600;font-size:17px;padding:12px 22px 14px;cursor:pointer;background:none;border:none;color:var(--ink-soft);position:relative;letter-spacing:.01em;}
+.tab.active{color:var(--ink);}
+.tab.active::after{content:"";position:absolute;bottom:-1px;left:14px;right:14px;height:3px;background:var(--red);}
+.tab .tnum{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);margin-right:6px;}
+.panel{display:none;}
+.panel.active{display:block;animation:fade .25s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+.subnav{display:flex;gap:10px;margin-bottom:28px;flex-wrap:wrap;}
+.subnav button{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.04em;padding:7px 13px;border:1px solid var(--ink);background:transparent;border-radius:2px;cursor:pointer;color:var(--ink);}
+.subnav button.on{background:var(--ink);color:var(--paper);}
+.section-block{margin-bottom:40px;}
+.section-block h3{font-family:'Fraunces',serif;font-size:22px;font-weight:700;margin:0 0 4px;display:flex;align-items:baseline;gap:10px;}
+.section-block h3 .tag{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--ink);color:var(--paper);padding:2px 7px;border-radius:2px;font-weight:600;}
+.purpose{font-style:italic;color:var(--ink-soft);font-size:14.5px;margin:6px 0 14px;padding-left:14px;border-left:2px solid var(--rule);}
+.section-block ul{margin:10px 0 14px;padding-left:20px;}
+.section-block li{margin-bottom:5px;font-size:15px;}
+.section-block p{font-size:15px;margin:8px 0;}
+.section-block strong{font-weight:700;}
+.formula{font-family:'JetBrains Mono',monospace;font-size:14px;background:var(--paper-2);padding:10px 14px;display:inline-block;}
+table.adv{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:14px;}
+table.adv caption{text-align:left;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);margin-bottom:8px;}
+table.adv th{text-align:left;padding:8px 12px;font-family:'Inter',sans-serif;font-weight:700;border-bottom:2px solid var(--ink);font-size:13px;}
+table.adv th.adv-col{color:var(--ao2);} table.adv th.dis-col{color:var(--ao4);}
+table.adv td{padding:8px 12px;border-bottom:1px solid var(--rule);vertical-align:top;}
+table.simple{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:14px;}
+table.simple th{text-align:left;padding:8px 12px;border-bottom:2px solid var(--ink);font-size:13px;}
+table.simple td{padding:8px 12px;border-bottom:1px solid var(--rule);}
+.keyterms{background:var(--paper-2);border:1px solid var(--rule);padding:20px 22px;margin-top:30px;}
+.keyterms h4{font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px;}
+.keyterms table{width:100%;border-collapse:collapse;font-size:14px;}
+.keyterms td{padding:6px 8px;border-bottom:1px dashed var(--rule);}
+.keyterms td:first-child{font-weight:700;width:38%;}
+.fc-controls{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;flex-wrap:wrap;gap:12px;}
+.fc-filters{display:flex;gap:8px;flex-wrap:wrap;}
+.fc-filters button{font-family:'JetBrains Mono',monospace;font-size:12px;padding:7px 12px;border:1px solid var(--ink);background:transparent;cursor:pointer;border-radius:2px;}
+.fc-filters button.on{background:var(--ink);color:var(--paper);}
+.fc-counter{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft);}
+.fc-stats{display:flex;gap:14px;font-family:'JetBrains Mono',monospace;font-size:11px;margin-bottom:14px;}
+.fc-stats span{display:flex;align-items:center;gap:5px;}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+.card-stage{display:flex;flex-direction:column;align-items:center;gap:18px;}
+.flip-card{width:100%;max-width:520px;height:240px;perspective:1400px;cursor:pointer;}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s cubic-bezier(.2,.7,.3,1);transform-style:preserve-3d;}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg);}
+.face{position:absolute;inset:0;border:2px solid var(--ink);border-radius:4px;display:flex;flex-direction:column;justify-content:center;padding:28px 30px;backface-visibility:hidden;background:var(--paper);}
+.face.back{transform:rotateY(180deg);background:var(--ink);color:var(--paper);}
+.face-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+.face.back .face-label{color:#A89D87;}
+.face-text{font-family:'Fraunces',serif;font-size:21px;font-weight:600;line-height:1.3;}
+.face-hint{position:absolute;bottom:14px;right:18px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);}
+.face.back .face-hint{color:#8a8071;}
+.rate-row{display:none;gap:10px;width:100%;max-width:520px;}
+.rate-row.show{display:flex;}
+.rate-btn{flex:1;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;padding:13px 8px;border:2px solid;border-radius:4px;background:transparent;cursor:pointer;text-align:center;letter-spacing:.02em;}
+.rate-btn.red{color:var(--red);border-color:var(--red);}
+.rate-btn.red:hover{background:var(--red);color:var(--paper);}
+.rate-btn.amber{color:var(--amber);border-color:var(--amber);}
+.rate-btn.amber:hover{background:var(--amber);color:var(--paper);}
+.rate-btn.green{color:var(--green);border-color:var(--green);}
+.rate-btn.green:hover{background:var(--green);color:var(--paper);}
+.fc-nav{display:flex;gap:14px;align-items:center;}
+.fc-nav button{font-family:'JetBrains Mono',monospace;font-size:13px;padding:9px 18px;border:1px solid var(--ink);background:transparent;cursor:pointer;border-radius:2px;}
+.fc-nav button:hover{background:var(--ink);color:var(--paper);}
+.fc-section-pill{font-family:'JetBrains Mono',monospace;font-size:11px;padding:4px 10px;border-radius:10px;color:var(--paper);}
+.deck-done{text-align:center;padding:60px 20px;font-family:'Fraunces',serif;font-size:20px;}
+.q-card{border:1px solid var(--ink);margin-bottom:18px;background:var(--paper);}
+.q-head{padding:18px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;}
+.q-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);margin-bottom:6px;letter-spacing:.04em;}
+.q-scenario{font-size:13px;color:var(--ink-soft);font-style:italic;margin-bottom:8px;}
+.q-text{font-family:'Fraunces',serif;font-size:17px;font-weight:600;}
+.q-marks{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;border:1px solid var(--ink);padding:4px 10px;white-space:nowrap;flex-shrink:0;}
+.q-toggle{font-size:20px;flex-shrink:0;color:var(--ink-soft);}
+.q-body{display:none;padding:4px 20px 24px;border-top:1px dashed var(--rule);}
+.q-card.open .q-body{display:block;}
+.q-card.open .q-toggle{transform:rotate(45deg);}
+.model-label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin:16px 0 8px;}
+.model-answer{font-size:15px;line-height:1.65;}
+.ao-stamps{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
+.stamp{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;border:2px solid;border-radius:50%;width:64px;height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(-6deg);line-height:1.15;}
+.stamp small{font-weight:400;font-size:9px;}
+.stamp.ao1{color:var(--ao1);border-color:var(--ao1);} .stamp.ao2{color:var(--ao2);border-color:var(--ao2);}
+.stamp.ao3{color:var(--ao3);border-color:var(--ao3);} .stamp.ao4{color:var(--ao4);border-color:var(--ao4);}
+@media(max-width:600px){.big-num{font-size:64px;} .flip-card{height:280px;} .q-head{flex-direction:column;} .rate-row{flex-direction:column;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="masthead">
+    <div class="eyebrow">EDEXCEL IAL BUSINESS &middot; UNIT 1 &middot; MARKETING AND PEOPLE</div>
+    <div class="title-row">
+      <div class="big-num">1.2</div>
+      <div class="title-text">The Market</div>
+    </div>
+    <div class="subline">Demand &middot; Supply &middot; PED &middot; YED</div>
+    <div class="chnav"><a href="index.html">&larr; Home</a><a class="" href="1.1-meeting-customer-needs.html">1.1</a><a class="cur" href="1.2-the-market.html">1.2</a><a class="" href="1.3-marketing-mix-strategy.html">1.3</a><a class="" href="1.4-managing-people.html">1.4</a><a class="" href="1.5-entrepreneurs-leaders.html">1.5</a></div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-panel="notes"><span class="tnum">01</span>Notes</button>
+    <button class="tab" data-panel="flashcards"><span class="tnum">02</span>Flashcards</button>
+    <button class="tab" data-panel="practice"><span class="tnum">03</span>Practice</button>
+  </div>
+
+  <div class="panel active" id="panel-notes">
+    <div class="subnav" id="subnav"><button class="on" data-target="s1">1.2.1-2 Demand &amp; Supply</button><button class="" data-target="s2">1.2.4 PED</button><button class="" data-target="s3">1.2.5 YED</button></div>
+    <div id="s1" style="display:block;">
+<div class="section-block"><h3>Demand <span class="tag">AO1</span></h3>
+<p class="purpose">To understand what determines how much of a product customers are willing and able to buy.</p>
+<p>Demand = the quantity of a good/service consumers are willing and able to buy at a given price, over a given time period.</p>
+<ul><li>Price of the product</li><li>Income levels</li><li>Price of substitutes/complements</li><li>Tastes and fashion</li><li>Advertising</li><li>Population/demographics</li><li>Interest rates</li></ul>
+<p>A change in <strong>price</strong> causes a movement along the demand curve. A change in any <strong>other factor</strong> shifts the whole curve.</p></div>
+
+<div class="section-block"><h3>Supply <span class="tag">AO1</span></h3>
+<p class="purpose">To understand what determines how much businesses are willing and able to produce/sell.</p>
+<p>Supply = the quantity of a good/service producers are willing and able to sell at a given price, over a given time period.</p>
+<ul><li>Cost of production</li><li>Technology/productivity</li><li>Number of producers</li><li>Government regulation/taxes/subsidies</li><li>Weather (agricultural)</li></ul></div>
+
+<div class="section-block"><h3>Demand &amp; Supply Interaction <span class="tag">AO2</span></h3>
+<p class="purpose">To explain how market price and quantity are determined, and what happens when conditions change.</p>
+<ul><li><strong>Equilibrium price:</strong> the price at which quantity demanded equals quantity supplied.</li>
+<li><strong>Excess demand:</strong> below equilibrium, demand exceeds supply, pushing price up.</li>
+<li><strong>Excess supply:</strong> above equilibrium, supply exceeds demand, pushing price down.</li></ul></div>
+</div><div id="s2" style="display:none;">
+<div class="section-block"><h3>Price Elasticity of Demand (PED) <span class="tag">AO1</span></h3>
+<p class="purpose">To measure how sensitive customer demand is to price changes, helping businesses set pricing strategy.</p>
+<p class="formula">PED = % change in quantity demanded &divide; % change in price</p>
+<ul><li><strong>Price elastic (PED &gt; 1):</strong> demand very responsive to price (e.g. luxury goods, many substitutes).</li>
+<li><strong>Price inelastic (PED &lt; 1):</strong> demand not very responsive (e.g. necessities, few substitutes).</li></ul>
+<table class="adv"><caption>Using PED in pricing decisions</caption><tr><th class="adv-col">Advantages</th><th class="dis-col">Drawbacks</th></tr>
+<tr><td>Helps predict revenue effect of a price change</td><td>PED can change over time, making past data unreliable</td></tr>
+<tr><td>Supports more profitable pricing strategy</td><td>Difficult to calculate accurately in practice</td></tr>
+<tr><td>Identifies products that can bear price increases</td><td>Ignores other demand factors (e.g. competitor actions)</td></tr></table></div>
+</div><div id="s3" style="display:none;">
+<div class="section-block"><h3>Income Elasticity of Demand (YED) <span class="tag">AO1</span></h3>
+<p class="purpose">To measure how sensitive demand is to changes in consumer income.</p>
+<p class="formula">YED = % change in quantity demanded &divide; % change in income</p>
+<ul><li><strong>Positive YED:</strong> normal good. YED&gt;1 = luxury/income elastic; 0&lt;YED&lt;1 = necessity/income inelastic.</li>
+<li><strong>Negative YED:</strong> inferior good (demand falls as income rises, e.g. value brands).</li></ul>
+<table class="adv"><caption>Using YED</caption><tr><th class="adv-col">Advantages</th><th class="dis-col">Drawbacks</th></tr>
+<tr><td>Helps anticipate impact of economic growth/recession</td><td>Consumer income data/behaviour can be volatile</td></tr>
+<tr><td>Supports product range decisions across economic conditions</td><td>Doesn't account for changing tastes independent of income</td></tr>
+<tr><td>Identifies if a product is luxury, necessity, or inferior</td><td>Historical YED may not hold true in future conditions</td></tr></table>
+
+<div class="keyterms"><h4>Key terms to know cold</h4><table>
+<tr><td>Demand</td><td>Quantity consumers are willing and able to buy at a given price</td></tr>
+<tr><td>Supply</td><td>Quantity producers are willing and able to sell at a given price</td></tr>
+<tr><td>Equilibrium price</td><td>The price where quantity demanded equals quantity supplied</td></tr>
+<tr><td>PED</td><td>Responsiveness of quantity demanded to a change in price</td></tr>
+<tr><td>YED</td><td>Responsiveness of quantity demanded to a change in income</td></tr>
+<tr><td>Inferior good</td><td>A good for which demand falls as income rises</td></tr></table></div>
+</div>
+</div>
+  </div>
+
+  <div class="panel" id="panel-flashcards">
+    <div class="fc-controls">
+      <div class="fc-filters" id="fc-filters"><button class="on" data-sec="all">All</button><button data-sec="A">Section A</button><button data-sec="B">Section B</button><button data-sec="C">Section C</button></div>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <div class="fc-counter" id="fc-counter">Card 1</div>
+        <button id="fc-reset" style="font-family:'JetBrains Mono',monospace;font-size:11px;padding:5px 10px;border:1px solid var(--rule);background:transparent;cursor:pointer;color:var(--ink-soft);border-radius:2px;">Reset progress</button>
+      </div>
+    </div>
+    <div class="fc-stats">
+      <span><span class="dot" style="background:var(--red)"></span>Not remembered: <b id="cnt-red">0</b></span>
+      <span><span class="dot" style="background:var(--amber)"></span>Partial: <b id="cnt-amber">0</b></span>
+      <span><span class="dot" style="background:var(--green)"></span>Mastered: <b id="cnt-green">0</b></span>
+    </div>
+    <div class="card-stage" id="card-stage">
+      <div class="flip-card" id="flip-card">
+        <div class="flip-inner">
+          <div class="face front">
+            <div class="face-label">Question</div>
+            <div class="face-text" id="fc-front">—</div>
+            <div class="face-hint">click to flip</div>
+          </div>
+          <div class="face back">
+            <div class="face-label">Answer</div>
+            <div class="face-text" id="fc-back">—</div>
+            <div class="face-hint">rate your recall below</div>
+          </div>
+        </div>
+      </div>
+      <div class="rate-row" id="rate-row">
+        <button class="rate-btn red" data-r="red">Not remembered</button>
+        <button class="rate-btn amber" data-r="amber">Partially remembered</button>
+        <button class="rate-btn green" data-r="green">Fully remembered</button>
+      </div>
+      <div class="fc-nav">
+        <button id="fc-prev">&larr; Skip back</button>
+        <span class="fc-section-pill" id="fc-pill" style="background:var(--ink);">A</span>
+        <button id="fc-skip">Skip &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" id="panel-practice">
+    <div id="practice-list"></div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.tab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById('panel-'+t.dataset.panel).classList.add('active');
+  });
+});
+
+const subnavTargets = ["s1", "s2", "s3"];
+document.querySelectorAll('#subnav button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('#subnav button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    subnavTargets.forEach(id=>document.getElementById(id).style.display='none');
+    document.getElementById(b.dataset.target).style.display='block';
+  });
+});
+
+/* ---------- FLASHCARDS with self-rating queue + persistence ---------- */
+const STORAGE_KEY = 'biz_revision_1_2_progress';
+const allCards = [{"sec": "A", "f": "What is demand?", "b": "The quantity of a good/service consumers are willing and able to buy at a given price."}, {"sec": "A", "f": "What is supply?", "b": "The quantity of a good/service producers are willing and able to sell at a given price."}, {"sec": "A", "f": "What causes a movement along the demand curve?", "b": "A change in the price of the product."}, {"sec": "A", "f": "What causes a shift of the demand curve?", "b": "A change in any factor other than price."}, {"sec": "A", "f": "What is the equilibrium price?", "b": "The price at which quantity demanded equals quantity supplied."}, {"sec": "A", "f": "What happens with excess demand?", "b": "Price rises because demand exceeds supply."}, {"sec": "A", "f": "What happens with excess supply?", "b": "Price falls because supply exceeds demand."}, {"sec": "A", "f": "What is PED?", "b": "A measure of the responsiveness of quantity demanded to a change in price."}, {"sec": "A", "f": "Formula for PED.", "b": "% change in quantity demanded \u00f7 % change in price"}, {"sec": "A", "f": "What does PED > 1 mean?", "b": "Demand is price elastic (very responsive to price changes)."}, {"sec": "A", "f": "What does PED < 1 mean?", "b": "Demand is price inelastic (not very responsive)."}, {"sec": "A", "f": "What is YED?", "b": "A measure of the responsiveness of quantity demanded to a change in income."}, {"sec": "A", "f": "Formula for YED.", "b": "% change in quantity demanded \u00f7 % change in income"}, {"sec": "A", "f": "What is a normal good?", "b": "A good where demand rises as income rises (positive YED)."}, {"sec": "A", "f": "What is an inferior good?", "b": "A good where demand falls as income rises (negative YED)."}, {"sec": "A", "f": "What is a luxury/income elastic good?", "b": "A good with YED > 1."}, {"sec": "B", "f": "One advantage of using PED in pricing?", "b": "Helps predict the revenue effect of a price change."}, {"sec": "B", "f": "One drawback of using PED?", "b": "PED can change over time, making past data unreliable."}, {"sec": "B", "f": "One advantage of using YED?", "b": "Helps anticipate the impact of economic growth/recession."}, {"sec": "B", "f": "One drawback of using YED?", "b": "Consumer income data/behaviour can be volatile."}, {"sec": "C", "f": "Why is PED useful to a business?", "b": "It helps set pricing strategy by showing demand sensitivity to price."}, {"sec": "C", "f": "Why is YED useful to a business?", "b": "It helps anticipate how sales might be affected by economic change."}, {"sec": "C", "f": "Why understand demand/supply interaction?", "b": "To understand how market price and quantity are determined and change."}];
+allCards.forEach((c,i)=>{c.id=i; c.status='unrated';});
+
+function loadProgress(){
+  try{
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    allCards.forEach(c=>{ if(saved[c.id]) c.status = saved[c.id]; });
+  }catch(e){}
+}
+function saveProgress(){
+  try{
+    const data = {};
+    allCards.forEach(c=>{ if(c.status!=='unrated') data[c.id]=c.status; });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }catch(e){}
+}
+loadProgress();
+
+let queue = allCards.map(c=>c.id);
+let activeFilter = 'all';
+let pos = 0;
+let flipped = false;
+
+const secColors = {A:'#1F4E5F',B:'#A8721C',C:'#2F6B3A',all:'#1A1815'};
+
+function getQueue(){
+  const base = activeFilter==='all' ? allCards : allCards.filter(c=>c.sec===activeFilter);
+  return base.filter(c=>c.status!=='green').map(c=>c.id);
+}
+
+function updateStats(){
+  document.getElementById('cnt-red').textContent = allCards.filter(c=>c.status==='red').length;
+  document.getElementById('cnt-amber').textContent = allCards.filter(c=>c.status==='amber').length;
+  document.getElementById('cnt-green').textContent = allCards.filter(c=>c.status==='green').length;
+}
+
+function renderCard(){
+  if(queue.length===0){
+    document.getElementById('card-stage').innerHTML = '<div class="deck-done">All cards in this set are mastered. 🎉<br><span style="font-family:JetBrains Mono;font-size:12px;color:var(--ink-soft);">Your progress is saved. Use "Reset progress" above to start over.</span></div>';
+    return;
+  }
+  const c = allCards[queue[0]];
+  document.getElementById('fc-front').textContent = c.f;
+  document.getElementById('fc-back').textContent = c.b;
+  document.getElementById('fc-counter').textContent = `${queue.length} card(s) left in this session`;
+  document.getElementById('fc-pill').textContent = c.sec;
+  document.getElementById('fc-pill').style.background = secColors[c.sec];
+  document.getElementById('flip-card').classList.remove('flipped');
+  document.getElementById('rate-row').classList.remove('show');
+  flipped = false;
+  updateStats();
+}
+
+document.getElementById('flip-card').addEventListener('click',()=>{
+  if(queue.length===0) return;
+  flipped = !flipped;
+  document.getElementById('flip-card').classList.toggle('flipped');
+  if(flipped){ document.getElementById('rate-row').classList.add('show'); }
+  else{ document.getElementById('rate-row').classList.remove('show'); }
+});
+
+document.getElementById('rate-row').addEventListener('click', e=>{
+  const btn = e.target.closest('.rate-btn');
+  if(!btn || queue.length===0) return;
+  const rating = btn.dataset.r;
+  const cardId = queue.shift();
+  allCards[cardId].status = rating;
+  saveProgress();
+  if(rating==='red'){
+    queue.splice(Math.min(2,queue.length),0,cardId); // show again very soon
+  } else if(rating==='amber'){
+    queue.splice(Math.min(6,queue.length),0,cardId); // show again later
+  } // green: removed from session queue entirely
+  renderCard();
+});
+
+document.getElementById('fc-reset').addEventListener('click',()=>{
+  if(!confirm('Reset all flashcard progress for this chapter?')) return;
+  allCards.forEach(c=>c.status='unrated');
+  localStorage.removeItem(STORAGE_KEY);
+  activeFilter='all';
+  document.querySelectorAll('#fc-filters button').forEach(x=>x.classList.remove('on'));
+  document.querySelector('#fc-filters button[data-sec="all"]').classList.add('on');
+  queue = getQueue();
+  renderCard();
+});
+
+document.getElementById('fc-skip').addEventListener('click',()=>{
+  if(queue.length===0) return;
+  const cardId = queue.shift();
+  queue.push(cardId);
+  renderCard();
+});
+document.getElementById('fc-prev').addEventListener('click',()=>{
+  if(queue.length===0) return;
+  const cardId = queue.pop();
+  queue.unshift(cardId);
+  renderCard();
+});
+
+document.getElementById('fc-filters').addEventListener('click', e=>{
+  const btn = e.target.closest('button');
+  if(!btn) return;
+  document.querySelectorAll('#fc-filters button').forEach(x=>x.classList.remove('on'));
+  btn.classList.add('on');
+  activeFilter = btn.dataset.sec;
+  queue = getQueue();
+  renderCard();
+});
+
+queue = getQueue();
+renderCard();
+
+/* ---------- PRACTICE QUESTIONS ---------- */
+const questions = [{"word": "DEFINE", "marks": "2 marks", "scenario": "SunDrop Soda notices that raising prices causes sales to fall sharply as customers switch to rivals.", "q": "Define the term \"price elasticity of demand.\"", "a": "PED is a measure of the responsiveness of quantity demanded to a change in price.", "ao": [{"c": "ao1", "l": "AO1", "m": "2"}]}, {"word": "EXPLAIN", "marks": "4 marks", "scenario": "During a recession, EverGoods' budget tinned food sales rose while its premium organic range declined.", "q": "Explain why EverGoods' budget-range products might be classed as an inferior good.", "a": "One reason is that sales rose during a recession. (Point) As incomes likely fell, budget tinned food sales increased. (Example/Scenario) This is because inferior goods have negative YED. (Explain) This suggests customers switched from premium to budget as incomes were squeezed. (Link)", "ao": [{"c": "ao1", "l": "AO1", "m": "1"}, {"c": "ao2", "l": "AO2", "m": "3"}]}, {"word": "ANALYSE", "marks": "6 marks", "scenario": "LumaTech raised its flagship phone price by 10%, leading to a 25% fall in quantity demanded.", "q": "Analyse the implications for LumaTech of this price elasticity of demand.", "a": "Demand is price elastic \u2014 PED of -2.5. (Point/Example) Elastic demand means revenue likely falls from the price rise since the % drop in sales outweighs the % price gain. (Explain/Link) A second implication is many available substitutes exist, limiting LumaTech's pricing power.", "ao": [{"c": "ao1", "l": "AO1", "m": "2"}, {"c": "ao2", "l": "AO2", "m": "2"}, {"c": "ao3", "l": "AO3", "m": "2"}]}, {"word": "DISCUSS", "marks": "8 marks", "scenario": "BrightHome is deciding whether to raise the price of its best-selling washing machine, which has few close substitutes.", "q": "Discuss whether BrightHome should increase the price of its washing machine.", "a": "With few substitutes, demand is likely inelastic, so a price rise could increase revenue. However, raising prices risks alienating loyal customers, especially if a substitute later emerges. Given the lack of substitutes, a moderate increase is likely justified, though BrightHome should monitor new entrants.", "ao": [{"c": "ao1", "l": "AO1", "m": "2"}, {"c": "ao2", "l": "AO2", "m": "2"}, {"c": "ao3", "l": "AO3", "m": "2"}, {"c": "ao4", "l": "AO4", "m": "2"}]}, {"word": "ASSESS", "marks": "10 marks", "scenario": "Nutreal has seen demand for its premium protein bars grow as incomes rise, and is deciding whether to expand its premium range or diversify into a budget range given economic uncertainty.", "q": "Assess whether Nutreal should expand its premium range or diversify into a budget range.", "a": "Premium range has shown positive, likely income-elastic demand, supporting further investment. However, this is risky given economic uncertainty \u2014 a downturn could sharply reduce demand. A budget range could hedge this risk via income-inelastic demand, but risks diluting the premium brand. Judgement: continue growing the premium range while developing a separately branded budget option as a hedge.", "ao": [{"c": "ao1", "l": "AO1", "m": "2"}, {"c": "ao2", "l": "AO2", "m": "2"}, {"c": "ao3", "l": "AO3", "m": "3"}, {"c": "ao4", "l": "AO4", "m": "3"}]}, {"word": "EVALUATE", "marks": "20 marks", "scenario": "UrbanRide, a bike-sharing company with historically elastic demand (PED>1), is debating raising membership prices amid rising costs.", "q": "Evaluate whether UrbanRide should raise its membership prices.", "a": "Argument 1: rising costs justify a price increase to protect margins. Counter: elastic demand means a price rise likely reduces total revenue, since ridership losses outweigh the price gain. Argument 2: keeping prices low protects market share. Counter: this isn't sustainable if costs keep rising. Judgement: avoid a broad price increase; focus on reducing operating costs directly and explore less-elastic revenue streams (e.g. advertising partnerships) instead.", "ao": [{"c": "ao1", "l": "AO1", "m": "4"}, {"c": "ao2", "l": "AO2", "m": "5"}, {"c": "ao3", "l": "AO3", "m": "6"}, {"c": "ao4", "l": "AO4", "m": "5"}]}];
+const list = document.getElementById('practice-list');
+questions.forEach((qd,i)=>{
+  const card = document.createElement('div');
+  card.className = 'q-card';
+  card.innerHTML = `
+    <div class="q-head">
+      <div>
+        <div class="q-meta">Q${i+1} &middot; ${qd.word} &middot; ${qd.marks}</div>
+        <div class="q-scenario">${qd.scenario}</div>
+        <div class="q-text">${qd.q}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+        <div class="q-marks">${qd.marks}</div>
+        <div class="q-toggle">+</div>
+      </div>
+    </div>
+    <div class="q-body">
+      <div class="model-label">Model Answer</div>
+      <div class="model-answer">${qd.a}</div>
+      <div class="ao-stamps">
+        ${qd.ao.map(a=>`<div class="stamp ${a.c}">${a.l}<small>${a.m} mk</small></div>`).join('')}
+      </div>
+    </div>
+  `;
+  card.querySelector('.q-head').addEventListener('click',()=>{ card.classList.toggle('open'); });
+  list.appendChild(card);
+});
+</script>
+</body>
+</html>
