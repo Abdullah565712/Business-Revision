@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>2.4 Resource Management — Edexcel IAL Business</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4EFE6; --paper-2:#ECE4D4; --ink:#1A1815; --ink-soft:#544E45;
+  --red:#C0341F; --rule:#D8CDB8;
+  --ao1:#1F4E5F; --ao2:#2F6B3A; --ao3:#A8721C; --ao4:#C0341F;
+  --green:#2F6B3A; --amber:#A8721C;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px 120px;}
+.masthead{border-bottom:3px solid var(--ink);padding:48px 0 18px;margin-bottom:8px;}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px;}
+.title-row{display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap;}
+.big-num{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(64px,12vw,108px);line-height:0.8;letter-spacing:-0.02em;}
+.title-text{font-family:'Fraunces',serif;font-weight:600;font-style:italic;font-size:clamp(22px,3.4vw,32px);padding-bottom:8px;}
+.subline{font-size:14px;color:var(--ink-soft);margin-top:10px;}
+.chnav{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap;}
+.chnav a{font-family:'JetBrains Mono',monospace;font-size:11px;padding:6px 11px;border:1px solid var(--rule);text-decoration:none;color:var(--ink-soft);border-radius:2px;}
+.chnav a.cur{border-color:var(--ink);color:var(--ink);background:var(--paper-2);font-weight:700;}
+.tabs{display:flex;gap:0;margin:32px 0 36px;border-bottom:1px solid var(--rule);}
+.tab{font-family:'Fraunces',serif;font-weight:600;font-size:17px;padding:12px 22px 14px;cursor:pointer;background:none;border:none;color:var(--ink-soft);position:relative;letter-spacing:.01em;}
+.tab.active{color:var(--ink);}
+.tab.active::after{content:"";position:absolute;bottom:-1px;left:14px;right:14px;height:3px;background:var(--red);}
+.tab .tnum{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);margin-right:6px;}
+.panel{display:none;}
+.panel.active{display:block;animation:fade .25s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+.subnav{display:flex;gap:10px;margin-bottom:28px;flex-wrap:wrap;}
+.subnav button{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.04em;padding:7px 13px;border:1px solid var(--ink);background:transparent;border-radius:2px;cursor:pointer;color:var(--ink);}
+.subnav button.on{background:var(--ink);color:var(--paper);}
+.section-block{margin-bottom:40px;}
+.section-block h3{font-family:'Fraunces',serif;font-size:22px;font-weight:700;margin:0 0 4px;display:flex;align-items:baseline;gap:10px;}
+.section-block h3 .tag{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--ink);color:var(--paper);padding:2px 7px;border-radius:2px;font-weight:600;}
+.purpose{font-style:italic;color:var(--ink-soft);font-size:14.5px;margin:6px 0 14px;padding-left:14px;border-left:2px solid var(--rule);}
+.section-block ul{margin:10px 0 14px;padding-left:20px;}
+.section-block li{margin-bottom:5px;font-size:15px;}
+.section-block p{font-size:15px;margin:8px 0;}
+.section-block strong{font-weight:700;}
+.formula{font-family:'JetBrains Mono',monospace;font-size:14px;background:var(--paper-2);padding:10px 14px;display:inline-block;}
+table.adv{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:14px;}
+table.adv caption{text-align:left;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);margin-bottom:8px;}
+table.adv th{text-align:left;padding:8px 12px;font-family:'Inter',sans-serif;font-weight:700;border-bottom:2px solid var(--ink);font-size:13px;}
+table.adv th.adv-col{color:var(--ao2);} table.adv th.dis-col{color:var(--ao4);}
+table.adv td{padding:8px 12px;border-bottom:1px solid var(--rule);vertical-align:top;}
+table.simple{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:14px;}
+table.simple th{text-align:left;padding:8px 12px;border-bottom:2px solid var(--ink);font-size:13px;}
+table.simple td{padding:8px 12px;border-bottom:1px solid var(--rule);}
+.keyterms{background:var(--paper-2);border:1px solid var(--rule);padding:20px 22px;margin-top:30px;}
+.keyterms h4{font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px;}
+.keyterms table{width:100%;border-collapse:collapse;font-size:14px;}
+.keyterms td{padding:6px 8px;border-bottom:1px dashed var(--rule);}
+.keyterms td:first-child{font-weight:700;width:38%;}
+.fc-controls{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;flex-wrap:wrap;gap:12px;}
+.fc-filters{display:flex;gap:8px;flex-wrap:wrap;}
+.fc-filters button{font-family:'JetBrains Mono',monospace;font-size:12px;padding:7px 12px;border:1px solid var(--ink);background:transparent;cursor:pointer;border-radius:2px;}
+.fc-filters button.on{background:var(--ink);color:var(--paper);}
+.fc-counter{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft);}
+.fc-stats{display:flex;gap:14px;font-family:'JetBrains Mono',monospace;font-size:11px;margin-bottom:14px;}
+.fc-stats span{display:flex;align-items:center;gap:5px;}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+.card-stage{display:flex;flex-direction:column;align-items:center;gap:18px;}
+.flip-card{width:100%;max-width:520px;height:240px;perspective:1400px;cursor:pointer;}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s cubic-bezier(.2,.7,.3,1);transform-style:preserve-3d;}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg);}
+.face{position:absolute;inset:0;border:2px solid var(--ink);border-radius:4px;display:flex;flex-direction:column;justify-content:center;padding:28px 30px;backface-visibility:hidden;background:var(--paper);}
+.face.back{transform:rotateY(180deg);background:var(--ink);color:var(--paper);}
+.face-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+.face.back .face-label{color:#A89D87;}
+.face-text{font-family:'Fraunces',serif;font-size:21px;font-weight:600;line-height:1.3;}
+.face-hint{position:absolute;bottom:14px;right:18px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);}
+.face.back .face-hint{color:#8a8071;}
+.rate-row{display:none;gap:10px;width:100%;max-width:520px;}
+.rate-row.show{display:flex;}
+.rate-btn{flex:1;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;padding:13px 8px;border:2px solid;border-radius:4px;background:transparent;cursor:pointer;text-align:center;letter-spacing:.02em;}
+.rate-btn.red{color:var(--red);border-color:var(--red);}
+.rate-btn.red:hover{background:var(--red);color:var(--paper);}
+.rate-btn.amber{color:var(--amber);border-color:var(--amber);}
+.rate-btn.amber:hover{background:var(--amber);color:var(--paper);}
+.rate-btn.green{color:var(--green);border-color:var(--green);}
+.rate-btn.green:hover{background:var(--green);color:var(--paper);}
+.fc-nav{display:flex;gap:14px;align-items:center;}
+.fc-nav button{font-family:'JetBrains Mono',monospace;font-size:13px;padding:9px 18px;border:1px solid var(--ink);background:transparent;cursor:pointer;border-radius:2px;}
+.fc-nav button:hover{background:var(--ink);color:var(--paper);}
+.fc-section-pill{font-family:'JetBrains Mono',monospace;font-size:11px;padding:4px 10px;border-radius:10px;color:var(--paper);}
+.deck-done{text-align:center;padding:60px 20px;font-family:'Fraunces',serif;font-size:20px;}
+.q-card{border:1px solid var(--ink);margin-bottom:18px;background:var(--paper);}
+.q-head{padding:18px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;}
+.q-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);margin-bottom:6px;letter-spacing:.04em;}
+.q-scenario{font-size:13px;color:var(--ink-soft);font-style:italic;margin-bottom:8px;}
+.q-text{font-family:'Fraunces',serif;font-size:17px;font-weight:600;}
+.q-marks{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;border:1px solid var(--ink);padding:4px 10px;white-space:nowrap;flex-shrink:0;}
+.q-toggle{font-size:20px;flex-shrink:0;color:var(--ink-soft);}
+.q-body{display:none;padding:4px 20px 24px;border-top:1px dashed var(--rule);}
+.q-card.open .q-body{display:block;}
+.q-card.open .q-toggle{transform:rotate(45deg);}
+.model-label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin:16px 0 8px;}
+.model-answer{font-size:15px;line-height:1.65;}
+.ao-stamps{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
+.stamp{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;border:2px solid;border-radius:50%;width:64px;height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(-6deg);line-height:1.15;}
+.stamp small{font-weight:400;font-size:9px;}
+.stamp.ao1{color:var(--ao1);border-color:var(--ao1);} .stamp.ao2{color:var(--ao2);border-color:var(--ao2);}
+.stamp.ao3{color:var(--ao3);border-color:var(--ao3);} .stamp.ao4{color:var(--ao4);border-color:var(--ao4);}
+@media(max-width:600px){.big-num{font-size:64px;} .flip-card{height:280px;} .q-head{flex-direction:column;} .rate-row{flex-direction:column;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="masthead">
+    <div class="eyebrow">EDEXCEL IAL BUSINESS &middot; UNIT 2 &middot; MANAGING BUSINESS ACTIVITIES</div>
+    <div class="title-row">
+      <div class="big-num">2.4</div>
+      <div class="title-text">Resource Management</div>
+    </div>
+    <div class="subline">Production &amp; productivity &middot; Capacity utilisation &middot; Inventory control &middot; Quality management</div>
+    <div class="chnav"><a href="index.html">&larr; Home</a><a class="" href="1.1-meeting-customer-needs.html">1.1</a><a class="" href="1.2-the-market.html">1.2</a><a class="" href="1.3-marketing-mix-strategy.html">1.3</a><a class="" href="1.4-managing-people.html">1.4</a><a class="" href="1.5-entrepreneurs-leaders.html">1.5</a><a class="" href="2.1-planning-raising-finance.html">2.1</a><a class="" href="2.2-financial-planning.html">2.2</a><a class="" href="2.3-managing-finance.html">2.3</a><a class="cur" href="2.4-resource-management.html">2.4</a><a class="" href="2.5-external-influences.html">2.5</a></div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-panel="notes"><span class="tnum">01</span>Notes</button>
+    <button class="tab" data-panel="flashcards"><span class="tnum">02</span>Flashcards</button>
+    <button class="tab" data-panel="practice"><span class="tnum">03</span>Practice</button>
+  </div>
+
+  <div class="panel active" id="panel-notes">
+    <div class="subnav" id="subnav"><button class="on" data-target="s1">2.4.1-2 Productivity &amp; Capacity</button><button class="" data-target="s2">2.4.3-4 Inventory &amp; Quality</button></div>
+    <div id="s1" style="display:block;">
+<div class="section-block"><h3>Production, Productivity &amp; Efficiency <span class="tag">AO1</span></h3>
+<p class="purpose">To understand how effectively a business turns inputs (labour, materials, capital) into outputs, which directly affects cost per unit and competitiveness.</p>
+<table class="simple"><tr><th>Term</th><th>Definition</th></tr>
+<tr><td>Production</td><td>The process of turning inputs into outputs (goods/services)</td></tr>
+<tr><td>Productivity</td><td>Output per worker (or per input) over a period</td></tr>
+<tr><td>Efficiency</td><td>Producing output at the lowest possible cost/waste of resources</td></tr></table>
+<p class="formula">Labour productivity = Total output &divide; Number of employees</p>
+<table class="adv"><caption>Improving labour productivity</caption><tr><th class="adv-col">Advantages</th><th class="dis-col">Drawbacks</th></tr>
+<tr><td>Lowers unit costs, improving competitiveness</td><td>May require investment in training/technology, which is costly upfront</td></tr>
+<tr><td>Can increase capacity without hiring more staff</td><td>Pushing too hard can reduce quality or harm staff morale</td></tr></table></div>
+
+<div class="section-block"><h3>Capacity Utilisation <span class="tag">AO2</span></h3>
+<p class="purpose">To measure how much of a business's maximum possible output is actually being used, helping identify spare capacity or overstretching.</p>
+<p class="formula">Capacity utilisation = (Actual output &divide; Maximum possible output) &times; 100</p>
+<svg viewBox="0 0 380 90" style="width:100%;max-width:400px;display:block;margin:14px 0;border:1px solid var(--rule);background:#fff;">
+  <rect x="20" y="20" width="340" height="40" fill="none" stroke="#1A1815" stroke-width="1.5"/>
+  <rect x="20" y="20" width="255" height="40" fill="#1F4E5F" opacity="0.25"/>
+  <line x1="275" y1="10" x2="275" y2="70" stroke="#1A1815" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="20" y="14" font-family="JetBrains Mono, monospace" font-size="9" fill="#544E45">0%</text>
+  <text x="345" y="14" font-family="JetBrains Mono, monospace" font-size="9" fill="#544E45">100%</text>
+  <text x="148" y="45" font-family="'Fraunces',serif" font-size="13" font-weight="700" fill="#1F4E5F" text-anchor="middle">75% utilised</text>
+</svg>
+<table class="adv"><caption>High capacity utilisation</caption><tr><th class="adv-col">Advantages</th><th class="dis-col">Drawbacks</th></tr>
+<tr><td>Fixed costs spread over more output, lowering unit cost</td><td>Little spare capacity to respond to sudden demand increases</td></tr>
+<tr><td>Signals efficient use of resources to investors</td><td>Increased risk of machine/staff breakdown from overuse</td></tr></table></div>
+</div><div id="s2" style="display:none;">
+<div class="section-block"><h3>Inventory (Stock) Control <span class="tag">AO2</span></h3>
+<p class="purpose">To manage stock levels so a business has enough to meet demand without tying up excessive cash in unsold inventory.</p>
+<svg viewBox="0 0 380 200" style="width:100%;max-width:400px;display:block;margin:14px 0;border:1px solid var(--rule);background:#fff;">
+  <line x1="40" y1="20" x2="40" y2="170" stroke="#1A1815" stroke-width="2"/>
+  <line x1="40" y1="170" x2="360" y2="170" stroke="#1A1815" stroke-width="2"/>
+  <text x="10" y="20" font-family="JetBrains Mono, monospace" font-size="9" fill="#544E45">Stock</text>
+  <text x="320" y="188" font-family="JetBrains Mono, monospace" font-size="9" fill="#544E45">Time</text>
+  <line x1="40" y1="90" x2="360" y2="90" stroke="#A8721C" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="280" y="84" font-family="JetBrains Mono, monospace" font-size="9" fill="#A8721C">Re-order level</text>
+  <path d="M40,40 L120,140 L120,40 L200,140 L200,40 L280,140 L280,40 L360,140" stroke="#1F4E5F" stroke-width="2" fill="none"/>
+  <text x="40" y="14" font-family="JetBrains Mono, monospace" font-size="9" fill="#1F4E5F">Max stock</text>
+</svg>
+<p><strong>Just-in-time (JIT):</strong> stock/materials arrive only as needed for production, minimising stock held.</p>
+<table class="adv"><caption>Just-in-time (JIT) stock control</caption><tr><th class="adv-col">Advantages</th><th class="dis-col">Drawbacks</th></tr>
+<tr><td>Reduces storage costs and cash tied up in stock</td><td>Highly vulnerable to supply chain disruption</td></tr>
+<tr><td>Reduces risk of holding obsolete/wasted stock</td><td>Requires very reliable, often more expensive suppliers</td></tr>
+<tr><td>Improves cash flow since less capital is tied up</td><td>Little buffer against sudden demand spikes</td></tr></table></div>
+
+<div class="section-block"><h3>Quality Management <span class="tag">AO1</span></h3>
+<p class="purpose">To ensure products/services consistently meet customer expectations, protecting reputation and reducing costly errors/returns.</p>
+<table class="simple"><tr><th>Approach</th><th>Description</th></tr>
+<tr><td>Total Quality Management (TQM)</td><td>A whole-business culture where every employee is responsible for quality</td></tr>
+<tr><td>Kaizen</td><td>Continuous, incremental improvement involving all staff</td></tr>
+<tr><td>Quality control</td><td>Checking output at the end of production for defects</td></tr></table>
+<table class="adv"><caption>Total Quality Management (TQM)</caption><tr><th class="adv-col">Advantages</th><th class="dis-col">Drawbacks</th></tr>
+<tr><td>Reduces costly defects/returns by catching issues earlier</td><td>Requires significant training and cultural change</td></tr>
+<tr><td>Can improve brand reputation and customer loyalty</td><td>Can slow down processes initially as new checks are introduced</td></tr></table>
+
+<div class="keyterms"><h4>Key terms to know cold</h4><table>
+<tr><td>Productivity</td><td>Output per worker (or per input) over a period</td></tr>
+<tr><td>Capacity utilisation</td><td>Actual output as a % of maximum possible output</td></tr>
+<tr><td>Just-in-time (JIT)</td><td>Stock/materials arrive only as needed for production</td></tr>
+<tr><td>Total Quality Management</td><td>A whole-business culture where every employee owns quality</td></tr>
+<tr><td>Kaizen</td><td>Continuous, incremental improvement involving all staff</td></tr></table></div>
+</div>
+</div>
+  </div>
+
+  <div class="panel" id="panel-flashcards">
+    <div class="fc-controls">
+      <div class="fc-filters" id="fc-filters"><button class="on" data-sec="all">All</button><button data-sec="A">Section A</button><button data-sec="B">Section B</button><button data-sec="C">Section C</button></div>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <div class="fc-counter" id="fc-counter">Card 1</div>
+        <button id="fc-reset" style="font-family:'JetBrains Mono',monospace;font-size:11px;padding:5px 10px;border:1px solid var(--rule);background:transparent;cursor:pointer;color:var(--ink-soft);border-radius:2px;">Reset progress</button>
+      </div>
+    </div>
+    <div class="fc-stats">
+      <span><span class="dot" style="background:var(--red)"></span>Not remembered: <b id="cnt-red">0</b></span>
+      <span><span class="dot" style="background:var(--amber)"></span>Partial: <b id="cnt-amber">0</b></span>
+      <span><span class="dot" style="background:var(--green)"></span>Mastered: <b id="cnt-green">0</b></span>
+    </div>
+    <div class="card-stage" id="card-stage">
+      <div class="flip-card" id="flip-card">
+        <div class="flip-inner">
+          <div class="face front">
+            <div class="face-label">Question</div>
+            <div class="face-text" id="fc-front">—</div>
+            <div class="face-hint">click to flip</div>
+          </div>
+          <div class="face back">
+            <div class="face-label">Answer</div>
+            <div class="face-text" id="fc-back">—</div>
+            <div class="face-hint">rate your recall below</div>
+          </div>
+        </div>
+      </div>
+      <div class="rate-row" id="rate-row">
+        <button class="rate-btn red" data-r="red">Not remembered</button>
+        <button class="rate-btn amber" data-r="amber">Partially remembered</button>
+        <button class="rate-btn green" data-r="green">Fully remembered</button>
+      </div>
+      <div class="fc-nav">
+        <button id="fc-prev">&larr; Skip back</button>
+        <span class="fc-section-pill" id="fc-pill" style="background:var(--ink);">A</span>
+        <button id="fc-skip">Skip &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" id="panel-practice">
+    <div id="practice-list"></div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.tab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById('panel-'+t.dataset.panel).classList.add('active');
+  });
+});
+
+const subnavTargets = ["s1", "s2"];
+document.querySelectorAll('#subnav button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('#subnav button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    subnavTargets.forEach(id=>document.getElementById(id).style.display='none');
+    document.getElementById(b.dataset.target).style.display='block';
+  });
+});
+
+/* ---------- FLASHCARDS with self-rating queue + persistence ---------- */
+const STORAGE_KEY = 'biz_revision_2_4_progress';
+const allCards = [{"sec": "A", "f": "What is production?", "b": "The process of turning inputs into outputs (goods/services)."}, {"sec": "A", "f": "What is productivity?", "b": "Output per worker (or per input) over a period."}, {"sec": "A", "f": "What is efficiency?", "b": "Producing output at the lowest possible cost/waste of resources."}, {"sec": "A", "f": "Formula for labour productivity.", "b": "Total output \u00f7 Number of employees"}, {"sec": "A", "f": "What is capacity utilisation?", "b": "Actual output as a percentage of maximum possible output."}, {"sec": "A", "f": "Formula for capacity utilisation.", "b": "(Actual output \u00f7 Maximum possible output) \u00d7 100"}, {"sec": "A", "f": "What is just-in-time (JIT) stock control?", "b": "Stock/materials arrive only as needed for production, minimising stock held."}, {"sec": "A", "f": "What is Total Quality Management (TQM)?", "b": "A whole-business culture where every employee is responsible for quality."}, {"sec": "A", "f": "What is Kaizen?", "b": "Continuous, incremental improvement involving all staff."}, {"sec": "A", "f": "What is quality control?", "b": "Checking output at the end of production for defects."}, {"sec": "B", "f": "One advantage of high capacity utilisation?", "b": "Fixed costs spread over more output, lowering unit cost."}, {"sec": "B", "f": "One drawback of high capacity utilisation?", "b": "Little spare capacity to respond to sudden demand increases."}, {"sec": "B", "f": "One advantage of JIT stock control?", "b": "Reduces storage costs and cash tied up in stock."}, {"sec": "B", "f": "One drawback of JIT stock control?", "b": "Highly vulnerable to supply chain disruption."}, {"sec": "B", "f": "One advantage of TQM?", "b": "Reduces costly defects/returns by catching issues earlier."}, {"sec": "B", "f": "One drawback of TQM?", "b": "Requires significant training and cultural change."}, {"sec": "C", "f": "Why might a business want to improve labour productivity?", "b": "To lower unit costs and improve competitiveness."}, {"sec": "C", "f": "Why is capacity utilisation important to monitor?", "b": "To identify spare capacity or the risk of overstretching resources."}, {"sec": "C", "f": "Why might a business adopt Kaizen rather than one-off quality checks?", "b": "To build continuous, incremental improvement into everyday culture rather than relying on occasional fixes."}];
+allCards.forEach((c,i)=>{c.id=i; c.status='unrated';});
+
+function loadProgress(){
+  try{
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    allCards.forEach(c=>{ if(saved[c.id]) c.status = saved[c.id]; });
+  }catch(e){}
+}
+function saveProgress(){
+  try{
+    const data = {};
+    allCards.forEach(c=>{ if(c.status!=='unrated') data[c.id]=c.status; });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }catch(e){}
+}
+loadProgress();
+
+let queue = allCards.map(c=>c.id);
+let activeFilter = 'all';
+let pos = 0;
+let flipped = false;
+
+const secColors = {A:'#1F4E5F',B:'#A8721C',C:'#2F6B3A',all:'#1A1815'};
+
+function getQueue(){
+  const base = activeFilter==='all' ? allCards : allCards.filter(c=>c.sec===activeFilter);
+  return base.filter(c=>c.status!=='green').map(c=>c.id);
+}
+
+function updateStats(){
+  document.getElementById('cnt-red').textContent = allCards.filter(c=>c.status==='red').length;
+  document.getElementById('cnt-amber').textContent = allCards.filter(c=>c.status==='amber').length;
+  document.getElementById('cnt-green').textContent = allCards.filter(c=>c.status==='green').length;
+}
+
+function renderCard(){
+  if(queue.length===0){
+    document.getElementById('card-stage').innerHTML = '<div class="deck-done">All cards in this set are mastered. 🎉<br><span style="font-family:JetBrains Mono;font-size:12px;color:var(--ink-soft);">Your progress is saved. Use "Reset progress" above to start over.</span></div>';
+    return;
+  }
+  const c = allCards[queue[0]];
+  document.getElementById('fc-front').textContent = c.f;
+  document.getElementById('fc-back').textContent = c.b;
+  document.getElementById('fc-counter').textContent = `${queue.length} card(s) left in this session`;
+  document.getElementById('fc-pill').textContent = c.sec;
+  document.getElementById('fc-pill').style.background = secColors[c.sec];
+  document.getElementById('flip-card').classList.remove('flipped');
+  document.getElementById('rate-row').classList.remove('show');
+  flipped = false;
+  updateStats();
+}
+
+document.getElementById('flip-card').addEventListener('click',()=>{
+  if(queue.length===0) return;
+  flipped = !flipped;
+  document.getElementById('flip-card').classList.toggle('flipped');
+  if(flipped){ document.getElementById('rate-row').classList.add('show'); }
+  else{ document.getElementById('rate-row').classList.remove('show'); }
+});
+
+document.getElementById('rate-row').addEventListener('click', e=>{
+  const btn = e.target.closest('.rate-btn');
+  if(!btn || queue.length===0) return;
+  const rating = btn.dataset.r;
+  const cardId = queue.shift();
+  allCards[cardId].status = rating;
+  saveProgress();
+  if(rating==='red'){
+    queue.splice(Math.min(2,queue.length),0,cardId); // show again very soon
+  } else if(rating==='amber'){
+    queue.splice(Math.min(6,queue.length),0,cardId); // show again later
+  } // green: removed from session queue entirely
+  renderCard();
+});
+
+document.getElementById('fc-reset').addEventListener('click',()=>{
+  if(!confirm('Reset all flashcard progress for this chapter?')) return;
+  allCards.forEach(c=>c.status='unrated');
+  localStorage.removeItem(STORAGE_KEY);
+  activeFilter='all';
+  document.querySelectorAll('#fc-filters button').forEach(x=>x.classList.remove('on'));
+  document.querySelector('#fc-filters button[data-sec="all"]').classList.add('on');
+  queue = getQueue();
+  renderCard();
+});
+
+document.getElementById('fc-skip').addEventListener('click',()=>{
+  if(queue.length===0) return;
+  const cardId = queue.shift();
+  queue.push(cardId);
+  renderCard();
+});
+document.getElementById('fc-prev').addEventListener('click',()=>{
+  if(queue.length===0) return;
+  const cardId = queue.pop();
+  queue.unshift(cardId);
+  renderCard();
+});
+
+document.getElementById('fc-filters').addEventListener('click', e=>{
+  const btn = e.target.closest('button');
+  if(!btn) return;
+  document.querySelectorAll('#fc-filters button').forEach(x=>x.classList.remove('on'));
+  btn.classList.add('on');
+  activeFilter = btn.dataset.sec;
+  queue = getQueue();
+  renderCard();
+});
+
+queue = getQueue();
+renderCard();
+
+/* ---------- PRACTICE QUESTIONS ---------- */
+const questions = [{"word": "CALCULATE", "marks": "4 marks", "scenario": "Vantix Manufacturing has a maximum possible output of 10,000 units per month and produced 7,500 units last month.", "q": "Calculate Vantix Manufacturing's capacity utilisation.", "a": "Capacity utilisation = (Actual output \u00f7 Maximum possible output) \u00d7 100 = (7,500 \u00f7 10,000) \u00d7 100 = 75%", "ao": [{"c": "ao1", "l": "AO1", "m": "4"}]}, {"word": "EXPLAIN", "marks": "4 marks", "scenario": "Forma Furniture switched to a just-in-time stock system to free up cash previously tied up in warehoused materials.", "q": "Explain one reason why Forma Furniture might have switched to a just-in-time stock system.", "a": "One reason is to reduce cash tied up in stock. (Point) By only ordering materials as needed for production, Forma avoids holding large amounts of unused inventory. (Example/Scenario) This is because JIT minimises the stock held at any one time. (Explain) This frees up cash that can be used elsewhere in the business. (Link)", "ao": [{"c": "ao1", "l": "AO1", "m": "1"}, {"c": "ao2", "l": "AO2", "m": "3"}]}, {"word": "ANALYSE", "marks": "6 marks", "scenario": "Brightline Electronics introduced Total Quality Management across its production line after a series of costly product recalls.", "q": "Analyse the benefits to Brightline Electronics of introducing TQM.", "a": "One benefit is reduced defects, as TQM makes every employee responsible for quality throughout production rather than only at final inspection. (Point/Explain) This directly addresses the cause of the recalls. (Link) A second benefit is improved brand reputation over time, as fewer defective products reach customers, rebuilding trust after the recalls. (Point/Explain/Link)", "ao": [{"c": "ao1", "l": "AO1", "m": "2"}, {"c": "ao2", "l": "AO2", "m": "2"}, {"c": "ao3", "l": "AO3", "m": "2"}]}, {"word": "DISCUSS", "marks": "8 marks", "scenario": "Solway Components, a car parts manufacturer, is deciding whether to switch from holding a buffer stock to a full just-in-time system.", "q": "Discuss whether Solway Components should switch to a full just-in-time stock system.", "a": "JIT would reduce storage costs and free up cash currently tied up in buffer stock. However, as a car parts manufacturer, any supply disruption could halt production entirely with no buffer to fall back on. Given how costly production stoppages are in manufacturing, Solway should weigh supplier reliability carefully before fully removing its buffer stock.", "ao": [{"c": "ao1", "l": "AO1", "m": "2"}, {"c": "ao2", "l": "AO2", "m": "2"}, {"c": "ao3", "l": "AO3", "m": "2"}, {"c": "ao4", "l": "AO4", "m": "2"}]}, {"word": "ASSESS", "marks": "10 marks", "scenario": "Pearce Bakery is running at 95% capacity utilisation and is deciding whether to invest in a second production facility to handle growing demand.", "q": "Assess whether Pearce Bakery should invest in a second production facility.", "a": "Running at 95% utilisation suggests Pearce is close to its output ceiling, with little spare capacity for further demand growth or unexpected spikes. A second facility would allow continued growth and reduce strain on existing equipment/staff. However, this requires significant capital investment and carries the risk that demand growth doesn't continue, leaving expensive spare capacity. Judgement: given utilisation is already very high and risks affecting quality/staff wellbeing, investing in additional capacity is likely justified, provided Pearce has reasonable confidence in continued demand growth.", "ao": [{"c": "ao1", "l": "AO1", "m": "2"}, {"c": "ao2", "l": "AO2", "m": "2"}, {"c": "ao3", "l": "AO3", "m": "3"}, {"c": "ao4", "l": "AO4", "m": "3"}]}, {"word": "EVALUATE", "marks": "20 marks", "scenario": "Tideline Apparel, a clothing manufacturer, currently holds a large buffer stock of fabric (low risk, high storage cost) and is debating switching to a JIT system to cut costs, despite operating in a region with occasionally unreliable freight/shipping.", "q": "Evaluate whether Tideline Apparel should switch to a just-in-time stock system.", "a": "Argument 1: JIT would significantly reduce storage costs and free up cash currently tied up in large fabric buffer stock, improving overall efficiency and liquidity. Counter: given the region's occasionally unreliable freight/shipping, JIT removes the safety buffer that currently protects Tideline from supply delays, risking production stoppages. Argument 2: JIT could also reduce the risk of holding obsolete fabric that goes out of fashion before use, since materials would be ordered closer to actual production need. Counter: achieving reliable JIT requires very dependable suppliers/logistics, which the unreliable regional freight situation directly undermines, increasing the realistic risk of disruption. Judgement: given the specific regional freight unreliability, a full switch to JIT carries meaningful operational risk; a hybrid approach \u2014 holding a smaller buffer stock while moving toward JIT principles for less critical materials \u2014 would capture some cost savings without fully exposing Tideline to supply chain risk.", "ao": [{"c": "ao1", "l": "AO1", "m": "4"}, {"c": "ao2", "l": "AO2", "m": "5"}, {"c": "ao3", "l": "AO3", "m": "6"}, {"c": "ao4", "l": "AO4", "m": "5"}]}];
+const list = document.getElementById('practice-list');
+questions.forEach((qd,i)=>{
+  const card = document.createElement('div');
+  card.className = 'q-card';
+  card.innerHTML = `
+    <div class="q-head">
+      <div>
+        <div class="q-meta">Q${i+1} &middot; ${qd.word} &middot; ${qd.marks}</div>
+        <div class="q-scenario">${qd.scenario}</div>
+        <div class="q-text">${qd.q}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+        <div class="q-marks">${qd.marks}</div>
+        <div class="q-toggle">+</div>
+      </div>
+    </div>
+    <div class="q-body">
+      <div class="model-label">Model Answer</div>
+      <div class="model-answer">${qd.a}</div>
+      <div class="ao-stamps">
+        ${qd.ao.map(a=>`<div class="stamp ${a.c}">${a.l}<small>${a.m} mk</small></div>`).join('')}
+      </div>
+    </div>
+  `;
+  card.querySelector('.q-head').addEventListener('click',()=>{ card.classList.toggle('open'); });
+  list.appendChild(card);
+});
+</script>
+</body>
+</html>

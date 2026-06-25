@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>2.3 Managing Finance — Edexcel IAL Business</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4EFE6; --paper-2:#ECE4D4; --ink:#1A1815; --ink-soft:#544E45;
+  --red:#C0341F; --rule:#D8CDB8;
+  --ao1:#1F4E5F; --ao2:#2F6B3A; --ao3:#A8721C; --ao4:#C0341F;
+  --green:#2F6B3A; --amber:#A8721C;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px 120px;}
+.masthead{border-bottom:3px solid var(--ink);padding:48px 0 18px;margin-bottom:8px;}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px;}
+.title-row{display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap;}
+.big-num{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(64px,12vw,108px);line-height:0.8;letter-spacing:-0.02em;}
+.title-text{font-family:'Fraunces',serif;font-weight:600;font-style:italic;font-size:clamp(22px,3.4vw,32px);padding-bottom:8px;}
+.subline{font-size:14px;color:var(--ink-soft);margin-top:10px;}
+.chnav{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap;}
+.chnav a{font-family:'JetBrains Mono',monospace;font-size:11px;padding:6px 11px;border:1px solid var(--rule);text-decoration:none;color:var(--ink-soft);border-radius:2px;}
+.chnav a.cur{border-color:var(--ink);color:var(--ink);background:var(--paper-2);font-weight:700;}
+.tabs{display:flex;gap:0;margin:32px 0 36px;border-bottom:1px solid var(--rule);}
+.tab{font-family:'Fraunces',serif;font-weight:600;font-size:17px;padding:12px 22px 14px;cursor:pointer;background:none;border:none;color:var(--ink-soft);position:relative;letter-spacing:.01em;}
+.tab.active{color:var(--ink);}
+.tab.active::after{content:"";position:absolute;bottom:-1px;left:14px;right:14px;height:3px;background:var(--red);}
+.tab .tnum{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);margin-right:6px;}
+.panel{display:none;}
+.panel.active{display:block;animation:fade .25s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+.subnav{display:flex;gap:10px;margin-bottom:28px;flex-wrap:wrap;}
+.subnav button{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.04em;padding:7px 13px;border:1px solid var(--ink);background:transparent;border-radius:2px;cursor:pointer;color:var(--ink);}
+.subnav button.on{background:var(--ink);color:var(--paper);}
+.section-block{margin-bottom:40px;}
+.section-block h3{font-family:'Fraunces',serif;font-size:22px;font-weight:700;margin:0 0 4px;display:flex;align-items:baseline;gap:10px;}
+.section-block h3 .tag{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--ink);color:var(--paper);padding:2px 7px;border-radius:2px;font-weight:600;}
+.purpose{font-style:italic;color:var(--ink-soft);font-size:14.5px;margin:6px 0 14px;padding-left:14px;border-left:2px solid var(--rule);}
+.section-block ul{margin:10px 0 14px;padding-left:20px;}
+.section-block li{margin-bottom:5px;font-size:15px;}
+.section-block p{font-size:15px;margin:8px 0;}
+.section-block strong{font-weight:700;}
+.formula{font-family:'JetBrains Mono',monospace;font-size:14px;background:var(--paper-2);padding:10px 14px;display:inline-block;}
+table.adv{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:14px;}
+table.adv caption{text-align:left;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);margin-bottom:8px;}
+table.adv th{text-align:left;padding:8px 12px;font-family:'Inter',sans-serif;font-weight:700;border-bottom:2px solid var(--ink);font-size:13px;}
+table.adv th.adv-col{color:var(--ao2);} table.adv th.dis-col{color:var(--ao4);}
+table.adv td{padding:8px 12px;border-bottom:1px solid var(--rule);vertical-align:top;}
+table.simple{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:14px;}
+table.simple th{text-align:left;padding:8px 12px;border-bottom:2px solid var(--ink);font-size:13px;}
+table.simple td{padding:8px 12px;border-bottom:1px solid var(--rule);}
+.keyterms{background:var(--paper-2);border:1px solid var(--rule);padding:20px 22px;margin-top:30px;}
+.keyterms h4{font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px;}
+.keyterms table{width:100%;border-collapse:collapse;font-size:14px;}
+.keyterms td{padding:6px 8px;border-bottom:1px dashed var(--rule);}
+.keyterms td:first-child{font-weight:700;width:38%;}
+.fc-controls{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;flex-wrap:wrap;gap:12px;}
+.fc-filters{display:flex;gap:8px;flex-wrap:wrap;}
+.fc-filters button{font-family:'JetBrains Mono',monospace;font-size:12px;padding:7px 12px;border:1px solid var(--ink);background:transparent;cursor:pointer;border-radius:2px;}
+.fc-filters button.on{background:var(--ink);color:var(--paper);}
+.fc-counter{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft);}
+.fc-stats{display:flex;gap:14px;font-family:'JetBrains Mono',monospace;font-size:11px;margin-bottom:14px;}
+.fc-stats span{display:flex;align-items:center;gap:5px;}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+.card-stage{display:flex;flex-direction:column;align-items:center;gap:18px;}
+.flip-card{width:100%;max-width:520px;height:240px;perspective:1400px;cursor:pointer;}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s cubic-bezier(.2,.7,.3,1);transform-style:preserve-3d;}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg);}
+.face{position:absolute;inset:0;border:2px solid var(--ink);border-radius:4px;display:flex;flex-direction:column;justify-content:center;padding:28px 30px;backface-visibility:hidden;background:var(--paper);}
+.face.back{transform:rotateY(180deg);background:var(--ink);color:var(--paper);}
+.face-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+.face.back .face-label{color:#A89D87;}
+.face-text{font-family:'Fraunces',serif;font-size:21px;font-weight:600;line-height:1.3;}
+.face-hint{position:absolute;bottom:14px;right:18px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);}
+.face.back .face-hint{color:#8a8071;}
+.rate-row{display:none;gap:10px;width:100%;max-width:520px;}
+.rate-row.show{display:flex;}
+.rate-btn{flex:1;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;padding:13px 8px;border:2px solid;border-radius:4px;background:transparent;cursor:pointer;text-align:center;letter-spacing:.02em;}
+.rate-btn.red{color:var(--red);border-color:var(--red);}
+.rate-btn.red:hover{background:var(--red);color:var(--paper);}
+.rate-btn.amber{color:var(--amber);border-color:var(--amber);}
+.rate-btn.amber:hover{background:var(--amber);color:var(--paper);}
+.rate-btn.green{color:var(--green);border-color:var(--green);}
+.rate-btn.green:hover{background:var(--green);color:var(--paper);}
+.fc-nav{display:flex;gap:14px;align-items:center;}
+.fc-nav button{font-family:'JetBrains Mono',monospace;font-size:13px;padding:9px 18px;border:1px solid var(--ink);background:transparent;cursor:pointer;border-radius:2px;}
+.fc-nav button:hover{background:var(--ink);color:var(--paper);}
+.fc-section-pill{font-family:'JetBrains Mono',monospace;font-size:11px;padding:4px 10px;border-radius:10px;color:var(--paper);}
+.deck-done{text-align:center;padding:60px 20px;font-family:'Fraunces',serif;font-size:20px;}
+.q-card{border:1px solid var(--ink);margin-bottom:18px;background:var(--paper);}
+.q-head{padding:18px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;}
+.q-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);margin-bottom:6px;letter-spacing:.04em;}
+.q-scenario{font-size:13px;color:var(--ink-soft);font-style:italic;margin-bottom:8px;}
+.q-text{font-family:'Fraunces',serif;font-size:17px;font-weight:600;}
+.q-marks{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;border:1px solid var(--ink);padding:4px 10px;white-space:nowrap;flex-shrink:0;}
+.q-toggle{font-size:20px;flex-shrink:0;color:var(--ink-soft);}
+.q-body{display:none;padding:4px 20px 24px;border-top:1px dashed var(--rule);}
+.q-card.open .q-body{display:block;}
+.q-card.open .q-toggle{transform:rotate(45deg);}
+.model-label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin:16px 0 8px;}
+.model-answer{font-size:15px;line-height:1.65;}
+.ao-stamps{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
+.stamp{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;border:2px solid;border-radius:50%;width:64px;height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(-6deg);line-height:1.15;}
+.stamp small{font-weight:400;font-size:9px;}
+.stamp.ao1{color:var(--ao1);border-color:var(--ao1);} .stamp.ao2{color:var(--ao2);border-color:var(--ao2);}
+.stamp.ao3{color:var(--ao3);border-color:var(--ao3);} .stamp.ao4{color:var(--ao4);border-color:var(--ao4);}
+@media(max-width:600px){.big-num{font-size:64px;} .flip-card{height:280px;} .q-head{flex-direction:column;} .rate-row{flex-direction:column;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="masthead">
+    <div class="eyebrow">EDEXCEL IAL BUSINESS &middot; UNIT 2 &middot; MANAGING BUSINESS ACTIVITIES</div>
+    <div class="title-row">
+      <div class="big-num">2.3</div>
+      <div class="title-text">Managing Finance</div>
+    </div>
+    <div class="subline">Profit &middot; Liquidity &middot; Ratio analysis &middot; Business failure</div>
+    <div class="chnav"><a href="index.html">&larr; Home</a><a class="" href="1.1-meeting-customer-needs.html">1.1</a><a class="" href="1.2-the-market.html">1.2</a><a class="" href="1.3-marketing-mix-strategy.html">1.3</a><a class="" href="1.4-managing-people.html">1.4</a><a class="" href="1.5-entrepreneurs-leaders.html">1.5</a><a class="" href="2.1-planning-raising-finance.html">2.1</a><a class="" href="2.2-financial-planning.html">2.2</a><a class="cur" href="2.3-managing-finance.html">2.3</a><a class="" href="2.4-resource-management.html">2.4</a><a class="" href="2.5-external-influences.html">2.5</a></div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-panel="notes"><span class="tnum">01</span>Notes</button>
+    <button class="tab" data-panel="flashcards"><span class="tnum">02</span>Flashcards</button>
+    <button class="tab" data-panel="practice"><span class="tnum">03</span>Practice</button>
+  </div>
+
+  <div class="panel active" id="panel-notes">
+    <div class="subnav" id="subnav"><button class="on" data-target="s1">2.3.1-2 Profit &amp; Liquidity</button><button class="" data-target="s2">2.3.3-4 Ratios &amp; Failure</button></div>
+    <div id="s1" style="display:block;">
+<div class="section-block"><h3>Profit <span class="tag">AO1</span></h3>
+<p class="purpose">To measure how much money a business has earned after all costs, the core indicator of financial success used by owners, investors and lenders.</p>
+<table class="simple"><tr><th>Term</th><th>Formula</th></tr>
+<tr><td>Gross profit</td><td>Revenue &minus; Cost of sales</td></tr>
+<tr><td>Operating profit</td><td>Gross profit &minus; Operating expenses</td></tr>
+<tr><td>Net profit</td><td>Operating profit &minus; Interest &amp; Tax</td></tr></table>
+<p>These appear on the <strong>Statement of Comprehensive Income</strong> (income statement), which shows performance over a period (e.g. a year).</p></div>
+
+<div class="section-block"><h3>Liquidity <span class="tag">AO1</span></h3>
+<p class="purpose">To assess whether a business has enough short-term assets to pay its short-term debts — a profitable business can still fail if it runs out of liquid cash.</p>
+<p>Liquidity is assessed using the <strong>Statement of Financial Position</strong> (balance sheet), which shows assets, liabilities and equity at a point in time.</p>
+<svg viewBox="0 0 380 200" style="width:100%;max-width:400px;display:block;margin:14px 0;border:1px solid var(--rule);background:#fff;">
+  <rect x="30" y="20" width="150" height="160" fill="none" stroke="#1F4E5F" stroke-width="1.5"/>
+  <text x="105" y="14" font-family="JetBrains Mono, monospace" font-size="10" fill="#1F4E5F" text-anchor="middle">ASSETS</text>
+  <text x="40" y="45" font-family="JetBrains Mono, monospace" font-size="9" fill="#1A1815">Non-current assets</text>
+  <text x="40" y="65" font-family="JetBrains Mono, monospace" font-size="9" fill="#1A1815">(buildings, equipment)</text>
+  <line x1="35" y1="85" x2="175" y2="85" stroke="#D8CDB8"/>
+  <text x="40" y="105" font-family="JetBrains Mono, monospace" font-size="9" fill="#1A1815">Current assets</text>
+  <text x="40" y="125" font-family="JetBrains Mono, monospace" font-size="9" fill="#1A1815">(cash, stock, debtors)</text>
+  <rect x="200" y="20" width="150" height="80" fill="none" stroke="#C0341F" stroke-width="1.5"/>
+  <text x="275" y="14" font-family="JetBrains Mono, monospace" font-size="10" fill="#C0341F" text-anchor="middle">CURRENT LIABILITIES</text>
+  <text x="210" y="45" font-family="JetBrains Mono, monospace" font-size="9" fill="#1A1815">Due within 1 year</text>
+  <text x="210" y="65" font-family="JetBrains Mono, monospace" font-size="9" fill="#1A1815">(creditors, overdraft)</text>
+  <rect x="200" y="110" width="150" height="70" fill="none" stroke="#A8721C" stroke-width="1.5"/>
+  <text x="275" y="104" font-family="JetBrains Mono, monospace" font-size="10" fill="#A8721C" text-anchor="middle">NON-CURRENT LIABILITIES</text>
+  <text x="210" y="135" font-family="JetBrains Mono, monospace" font-size="9" fill="#1A1815">Due after 1 year</text>
+  <text x="210" y="155" font-family="JetBrains Mono, monospace" font-size="9" fill="#1A1815">(long-term loans)</text>
+</svg>
+<table class="simple"><tr><th>Ratio</th><th>Formula</th><th>What it shows</th></tr>
+<tr><td>Current ratio</td><td>Current assets &divide; Current liabilities</td><td>Ability to pay short-term debts (ideal ~1.5&ndash;2)</td></tr>
+<tr><td>Acid test ratio</td><td>(Current assets &minus; Inventory) &divide; Current liabilities</td><td>Stricter liquidity test, excluding stock</td></tr></table></div>
+</div><div id="s2" style="display:none;">
+<div class="section-block"><h3>Ratio Analysis <span class="tag">AO2</span></h3>
+<p class="purpose">To assess different aspects of a business's financial performance by comparing figures from its financial statements over time or against competitors.</p>
+<table class="simple"><tr><th>Ratio</th><th>Formula</th><th>What it shows</th></tr>
+<tr><td>Gross profit margin</td><td>(Gross profit &divide; Revenue) &times; 100</td><td>Profitability of core trading activity</td></tr>
+<tr><td>Net profit margin</td><td>(Net profit &divide; Revenue) &times; 100</td><td>Overall profitability after all costs</td></tr>
+<tr><td>ROCE</td><td>(Operating profit &divide; Capital employed) &times; 100</td><td>How efficiently capital generates profit</td></tr>
+<tr><td>Gearing ratio</td><td>(Non-current liabilities &divide; Capital employed) &times; 100</td><td>Proportion of finance from debt vs equity</td></tr></table>
+<table class="adv"><caption>Using ratio analysis</caption><tr><th class="adv-col">Advantages</th><th class="dis-col">Drawbacks</th></tr>
+<tr><td>Allows comparison over time and against competitors/industry</td><td>Ratios alone don't explain the underlying causes</td></tr>
+<tr><td>Highlights potential problems early (e.g. worsening liquidity)</td><td>Based on historic data, which may not reflect current conditions</td></tr>
+<tr><td>Useful for investors/lenders assessing risk</td><td>Different accounting policies between businesses can distort comparisons</td></tr></table></div>
+
+<div class="section-block"><h3>Business Failure <span class="tag">AO1</span></h3>
+<p class="purpose">To understand the causes of business failure, so risks can be identified and managed in advance.</p>
+<table class="simple"><tr><th>Internal causes</th><th>External causes</th></tr>
+<tr><td>Poor cash flow management</td><td>Economic downturn/recession</td></tr>
+<tr><td>Weak financial control/planning</td><td>New competitor entry</td></tr>
+<tr><td>Poor management decisions</td><td>Changes in regulation/law</td></tr></table>
+
+<div class="keyterms"><h4>Key terms to know cold</h4><table>
+<tr><td>Gross profit</td><td>Revenue minus cost of sales</td></tr>
+<tr><td>Net profit</td><td>Operating profit minus interest and tax</td></tr>
+<tr><td>Current ratio</td><td>Current assets divided by current liabilities</td></tr>
+<tr><td>ROCE</td><td>Operating profit divided by capital employed, as a %</td></tr>
+<tr><td>Gearing</td><td>The proportion of a business's finance that comes from debt</td></tr></table></div>
+</div>
+</div>
+  </div>
+
+  <div class="panel" id="panel-flashcards">
+    <div class="fc-controls">
+      <div class="fc-filters" id="fc-filters"><button class="on" data-sec="all">All</button><button data-sec="A">Section A</button><button data-sec="B">Section B</button><button data-sec="C">Section C</button></div>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <div class="fc-counter" id="fc-counter">Card 1</div>
+        <button id="fc-reset" style="font-family:'JetBrains Mono',monospace;font-size:11px;padding:5px 10px;border:1px solid var(--rule);background:transparent;cursor:pointer;color:var(--ink-soft);border-radius:2px;">Reset progress</button>
+      </div>
+    </div>
+    <div class="fc-stats">
+      <span><span class="dot" style="background:var(--red)"></span>Not remembered: <b id="cnt-red">0</b></span>
+      <span><span class="dot" style="background:var(--amber)"></span>Partial: <b id="cnt-amber">0</b></span>
+      <span><span class="dot" style="background:var(--green)"></span>Mastered: <b id="cnt-green">0</b></span>
+    </div>
+    <div class="card-stage" id="card-stage">
+      <div class="flip-card" id="flip-card">
+        <div class="flip-inner">
+          <div class="face front">
+            <div class="face-label">Question</div>
+            <div class="face-text" id="fc-front">—</div>
+            <div class="face-hint">click to flip</div>
+          </div>
+          <div class="face back">
+            <div class="face-label">Answer</div>
+            <div class="face-text" id="fc-back">—</div>
+            <div class="face-hint">rate your recall below</div>
+          </div>
+        </div>
+      </div>
+      <div class="rate-row" id="rate-row">
+        <button class="rate-btn red" data-r="red">Not remembered</button>
+        <button class="rate-btn amber" data-r="amber">Partially remembered</button>
+        <button class="rate-btn green" data-r="green">Fully remembered</button>
+      </div>
+      <div class="fc-nav">
+        <button id="fc-prev">&larr; Skip back</button>
+        <span class="fc-section-pill" id="fc-pill" style="background:var(--ink);">A</span>
+        <button id="fc-skip">Skip &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" id="panel-practice">
+    <div id="practice-list"></div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.tab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById('panel-'+t.dataset.panel).classList.add('active');
+  });
+});
+
+const subnavTargets = ["s1", "s2"];
+document.querySelectorAll('#subnav button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('#subnav button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    subnavTargets.forEach(id=>document.getElementById(id).style.display='none');
+    document.getElementById(b.dataset.target).style.display='block';
+  });
+});
+
+/* ---------- FLASHCARDS with self-rating queue + persistence ---------- */
+const STORAGE_KEY = 'biz_revision_2_3_progress';
+const allCards = [{"sec": "A", "f": "How do you calculate gross profit?", "b": "Revenue \u2212 Cost of sales."}, {"sec": "A", "f": "How do you calculate operating profit?", "b": "Gross profit \u2212 Operating expenses."}, {"sec": "A", "f": "How do you calculate net profit?", "b": "Operating profit \u2212 Interest and tax."}, {"sec": "A", "f": "What does the Statement of Comprehensive Income show?", "b": "A business's financial performance (profit) over a period."}, {"sec": "A", "f": "What does the Statement of Financial Position show?", "b": "A business's assets, liabilities and equity at a point in time."}, {"sec": "A", "f": "Formula for the current ratio.", "b": "Current assets \u00f7 Current liabilities"}, {"sec": "A", "f": "Formula for the acid test ratio.", "b": "(Current assets \u2212 Inventory) \u00f7 Current liabilities"}, {"sec": "A", "f": "Formula for gross profit margin.", "b": "(Gross profit \u00f7 Revenue) \u00d7 100"}, {"sec": "A", "f": "Formula for net profit margin.", "b": "(Net profit \u00f7 Revenue) \u00d7 100"}, {"sec": "A", "f": "Formula for ROCE.", "b": "(Operating profit \u00f7 Capital employed) \u00d7 100"}, {"sec": "A", "f": "Formula for the gearing ratio.", "b": "(Non-current liabilities \u00f7 Capital employed) \u00d7 100"}, {"sec": "A", "f": "What is liquidity?", "b": "A business's ability to pay its short-term debts using short-term assets."}, {"sec": "B", "f": "One advantage of ratio analysis?", "b": "Allows comparison over time and against competitors."}, {"sec": "B", "f": "One drawback of ratio analysis?", "b": "Ratios alone don't explain the underlying causes."}, {"sec": "B", "f": "Name one internal cause of business failure.", "b": "Poor cash flow management (or poor management decisions)."}, {"sec": "B", "f": "Name one external cause of business failure.", "b": "Economic downturn/recession (or new competitor entry)."}, {"sec": "C", "f": "Why might an ideal current ratio be around 1.5-2?", "b": "High enough to cover short-term debts, but not so high that assets are sitting idle."}, {"sec": "C", "f": "Why do lenders look at the gearing ratio?", "b": "To assess how much of the business is funded by debt, which signals financial risk."}, {"sec": "C", "f": "Why use the acid test ratio rather than just the current ratio?", "b": "It excludes inventory, which may not be quickly converted to cash, giving a stricter liquidity test."}];
+allCards.forEach((c,i)=>{c.id=i; c.status='unrated';});
+
+function loadProgress(){
+  try{
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    allCards.forEach(c=>{ if(saved[c.id]) c.status = saved[c.id]; });
+  }catch(e){}
+}
+function saveProgress(){
+  try{
+    const data = {};
+    allCards.forEach(c=>{ if(c.status!=='unrated') data[c.id]=c.status; });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }catch(e){}
+}
+loadProgress();
+
+let queue = allCards.map(c=>c.id);
+let activeFilter = 'all';
+let pos = 0;
+let flipped = false;
+
+const secColors = {A:'#1F4E5F',B:'#A8721C',C:'#2F6B3A',all:'#1A1815'};
+
+function getQueue(){
+  const base = activeFilter==='all' ? allCards : allCards.filter(c=>c.sec===activeFilter);
+  return base.filter(c=>c.status!=='green').map(c=>c.id);
+}
+
+function updateStats(){
+  document.getElementById('cnt-red').textContent = allCards.filter(c=>c.status==='red').length;
+  document.getElementById('cnt-amber').textContent = allCards.filter(c=>c.status==='amber').length;
+  document.getElementById('cnt-green').textContent = allCards.filter(c=>c.status==='green').length;
+}
+
+function renderCard(){
+  if(queue.length===0){
+    document.getElementById('card-stage').innerHTML = '<div class="deck-done">All cards in this set are mastered. 🎉<br><span style="font-family:JetBrains Mono;font-size:12px;color:var(--ink-soft);">Your progress is saved. Use "Reset progress" above to start over.</span></div>';
+    return;
+  }
+  const c = allCards[queue[0]];
+  document.getElementById('fc-front').textContent = c.f;
+  document.getElementById('fc-back').textContent = c.b;
+  document.getElementById('fc-counter').textContent = `${queue.length} card(s) left in this session`;
+  document.getElementById('fc-pill').textContent = c.sec;
+  document.getElementById('fc-pill').style.background = secColors[c.sec];
+  document.getElementById('flip-card').classList.remove('flipped');
+  document.getElementById('rate-row').classList.remove('show');
+  flipped = false;
+  updateStats();
+}
+
+document.getElementById('flip-card').addEventListener('click',()=>{
+  if(queue.length===0) return;
+  flipped = !flipped;
+  document.getElementById('flip-card').classList.toggle('flipped');
+  if(flipped){ document.getElementById('rate-row').classList.add('show'); }
+  else{ document.getElementById('rate-row').classList.remove('show'); }
+});
+
+document.getElementById('rate-row').addEventListener('click', e=>{
+  const btn = e.target.closest('.rate-btn');
+  if(!btn || queue.length===0) return;
+  const rating = btn.dataset.r;
+  const cardId = queue.shift();
+  allCards[cardId].status = rating;
+  saveProgress();
+  if(rating==='red'){
+    queue.splice(Math.min(2,queue.length),0,cardId); // show again very soon
+  } else if(rating==='amber'){
+    queue.splice(Math.min(6,queue.length),0,cardId); // show again later
+  } // green: removed from session queue entirely
+  renderCard();
+});
+
+document.getElementById('fc-reset').addEventListener('click',()=>{
+  if(!confirm('Reset all flashcard progress for this chapter?')) return;
+  allCards.forEach(c=>c.status='unrated');
+  localStorage.removeItem(STORAGE_KEY);
+  activeFilter='all';
+  document.querySelectorAll('#fc-filters button').forEach(x=>x.classList.remove('on'));
+  document.querySelector('#fc-filters button[data-sec="all"]').classList.add('on');
+  queue = getQueue();
+  renderCard();
+});
+
+document.getElementById('fc-skip').addEventListener('click',()=>{
+  if(queue.length===0) return;
+  const cardId = queue.shift();
+  queue.push(cardId);
+  renderCard();
+});
+document.getElementById('fc-prev').addEventListener('click',()=>{
+  if(queue.length===0) return;
+  const cardId = queue.pop();
+  queue.unshift(cardId);
+  renderCard();
+});
+
+document.getElementById('fc-filters').addEventListener('click', e=>{
+  const btn = e.target.closest('button');
+  if(!btn) return;
+  document.querySelectorAll('#fc-filters button').forEach(x=>x.classList.remove('on'));
+  btn.classList.add('on');
+  activeFilter = btn.dataset.sec;
+  queue = getQueue();
+  renderCard();
+});
+
+queue = getQueue();
+renderCard();
+
+/* ---------- PRACTICE QUESTIONS ---------- */
+const questions = [{"word": "CALCULATE", "marks": "4 marks", "scenario": "Solis Designs has current assets of $60,000 and current liabilities of $40,000.", "q": "Calculate Solis Designs' current ratio.", "a": "Current ratio = Current assets \u00f7 Current liabilities = $60,000 \u00f7 $40,000 = 1.5", "ao": [{"c": "ao1", "l": "AO1", "m": "4"}]}, {"word": "EXPLAIN", "marks": "4 marks", "scenario": "Bramble Foods' net profit margin fell from 12% to 7% over the year, despite revenue increasing.", "q": "Explain one possible reason for Bramble Foods' falling net profit margin despite rising revenue.", "a": "One reason is rising costs outpacing revenue growth. (Point) If costs (e.g. raw materials, wages) increased faster than sales revenue, profit margin would fall even as revenue rises. (Example/Scenario) This is because net profit margin depends on the relationship between costs and revenue, not revenue alone. (Explain) This means Bramble Foods is becoming less efficient at converting sales into profit. (Link)", "ao": [{"c": "ao1", "l": "AO1", "m": "1"}, {"c": "ao2", "l": "AO2", "m": "3"}]}, {"word": "ANALYSE", "marks": "6 marks", "scenario": "Vantage Retail's gearing ratio rose from 30% to 65% after taking out a large loan to fund new stores.", "q": "Analyse the implications for Vantage Retail of this increase in gearing.", "a": "A 65% gearing ratio indicates the business is now heavily reliant on debt finance. (Point/Example) This increases financial risk, since fixed interest payments must be made regardless of how the new stores perform. (Explain) A second implication is reduced ability to raise further debt finance in future, since lenders may see Vantage as higher risk. (Explain/Link)", "ao": [{"c": "ao1", "l": "AO1", "m": "2"}, {"c": "ao2", "l": "AO2", "m": "2"}, {"c": "ao3", "l": "AO3", "m": "2"}]}, {"word": "DISCUSS", "marks": "8 marks", "scenario": "Atlas Manufacturing has a current ratio of 0.8, below the typically recommended range.", "q": "Discuss whether Atlas Manufacturing's low current ratio is a serious concern.", "a": "A ratio below 1 suggests Atlas may struggle to cover short-term liabilities with current assets, risking an inability to pay suppliers/short-term debts on time. However, the ratio alone doesn't show the full picture \u2014 if Atlas has reliable, fast-converting receivables or a strong bank relationship, the risk may be manageable. Given manufacturing businesses often hold significant inventory, checking the acid test ratio specifically would give a clearer, more reliable picture before concluding this is a serious concern.", "ao": [{"c": "ao1", "l": "AO1", "m": "2"}, {"c": "ao2", "l": "AO2", "m": "2"}, {"c": "ao3", "l": "AO3", "m": "2"}, {"c": "ao4", "l": "AO4", "m": "2"}]}, {"word": "ASSESS", "marks": "10 marks", "scenario": "Driftwood Caf\u00e9s has seen gross profit margin stay stable at 60% but net profit margin fall from 15% to 8% over two years, while expanding into three new locations funded by a loan.", "q": "Assess the likely causes of Driftwood Caf\u00e9s' falling net profit margin.", "a": "Since gross margin is stable, the issue likely lies below gross profit \u2014 increased operating expenses (e.g. rent, staffing for new locations) or new loan interest payments are probable causes. The expansion into three new locations funded by debt directly explains both increased operating costs and new interest expense. Judgement: the falling net margin is most likely explained by the cost of expansion (new location overheads plus loan interest) rather than a decline in core trading performance, which remains healthy per the stable gross margin.", "ao": [{"c": "ao1", "l": "AO1", "m": "2"}, {"c": "ao2", "l": "AO2", "m": "2"}, {"c": "ao3", "l": "AO3", "m": "3"}, {"c": "ao4", "l": "AO4", "m": "3"}]}, {"word": "EVALUATE", "marks": "20 marks", "scenario": "Ferro Industrial, a manufacturing Plc, has a current ratio of 1.1 (near the risky end) and a gearing ratio of 70% (high). The board is debating whether to raise further debt to fund new machinery, or instead issue new shares despite current shareholders' resistance to dilution.", "q": "Evaluate whether Ferro Industrial should raise further debt or issue new shares to fund new machinery.</p>", "a": "Argument 1: raising further debt avoids ownership dilution and keeps existing shareholders' control intact. Counter: given gearing is already high at 70%, additional debt significantly increases financial risk, especially combined with a current ratio near the risky threshold \u2014 a downturn could leave Ferro unable to meet both short-term and interest obligations. Argument 2: issuing shares would reduce financial risk by raising capital without new debt obligations, improving the gearing position. Counter: shareholder resistance to dilution could damage relationships with existing investors and depress the share price if poorly received. Judgement: given Ferro's already-high gearing and tight liquidity position, taking on further debt poses a serious risk of financial distress if conditions worsen; despite shareholder resistance, issuing new shares is the more prudent option to avoid compounding existing financial risk.", "ao": [{"c": "ao1", "l": "AO1", "m": "4"}, {"c": "ao2", "l": "AO2", "m": "5"}, {"c": "ao3", "l": "AO3", "m": "6"}, {"c": "ao4", "l": "AO4", "m": "5"}]}];
+const list = document.getElementById('practice-list');
+questions.forEach((qd,i)=>{
+  const card = document.createElement('div');
+  card.className = 'q-card';
+  card.innerHTML = `
+    <div class="q-head">
+      <div>
+        <div class="q-meta">Q${i+1} &middot; ${qd.word} &middot; ${qd.marks}</div>
+        <div class="q-scenario">${qd.scenario}</div>
+        <div class="q-text">${qd.q}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+        <div class="q-marks">${qd.marks}</div>
+        <div class="q-toggle">+</div>
+      </div>
+    </div>
+    <div class="q-body">
+      <div class="model-label">Model Answer</div>
+      <div class="model-answer">${qd.a}</div>
+      <div class="ao-stamps">
+        ${qd.ao.map(a=>`<div class="stamp ${a.c}">${a.l}<small>${a.m} mk</small></div>`).join('')}
+      </div>
+    </div>
+  `;
+  card.querySelector('.q-head').addEventListener('click',()=>{ card.classList.toggle('open'); });
+  list.appendChild(card);
+});
+</script>
+</body>
+</html>

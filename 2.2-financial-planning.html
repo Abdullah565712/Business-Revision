@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>2.2 Financial Planning — Edexcel IAL Business</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4EFE6; --paper-2:#ECE4D4; --ink:#1A1815; --ink-soft:#544E45;
+  --red:#C0341F; --rule:#D8CDB8;
+  --ao1:#1F4E5F; --ao2:#2F6B3A; --ao3:#A8721C; --ao4:#C0341F;
+  --green:#2F6B3A; --amber:#A8721C;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px 120px;}
+.masthead{border-bottom:3px solid var(--ink);padding:48px 0 18px;margin-bottom:8px;}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px;}
+.title-row{display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap;}
+.big-num{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(64px,12vw,108px);line-height:0.8;letter-spacing:-0.02em;}
+.title-text{font-family:'Fraunces',serif;font-weight:600;font-style:italic;font-size:clamp(22px,3.4vw,32px);padding-bottom:8px;}
+.subline{font-size:14px;color:var(--ink-soft);margin-top:10px;}
+.chnav{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap;}
+.chnav a{font-family:'JetBrains Mono',monospace;font-size:11px;padding:6px 11px;border:1px solid var(--rule);text-decoration:none;color:var(--ink-soft);border-radius:2px;}
+.chnav a.cur{border-color:var(--ink);color:var(--ink);background:var(--paper-2);font-weight:700;}
+.tabs{display:flex;gap:0;margin:32px 0 36px;border-bottom:1px solid var(--rule);}
+.tab{font-family:'Fraunces',serif;font-weight:600;font-size:17px;padding:12px 22px 14px;cursor:pointer;background:none;border:none;color:var(--ink-soft);position:relative;letter-spacing:.01em;}
+.tab.active{color:var(--ink);}
+.tab.active::after{content:"";position:absolute;bottom:-1px;left:14px;right:14px;height:3px;background:var(--red);}
+.tab .tnum{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);margin-right:6px;}
+.panel{display:none;}
+.panel.active{display:block;animation:fade .25s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+.subnav{display:flex;gap:10px;margin-bottom:28px;flex-wrap:wrap;}
+.subnav button{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.04em;padding:7px 13px;border:1px solid var(--ink);background:transparent;border-radius:2px;cursor:pointer;color:var(--ink);}
+.subnav button.on{background:var(--ink);color:var(--paper);}
+.section-block{margin-bottom:40px;}
+.section-block h3{font-family:'Fraunces',serif;font-size:22px;font-weight:700;margin:0 0 4px;display:flex;align-items:baseline;gap:10px;}
+.section-block h3 .tag{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--ink);color:var(--paper);padding:2px 7px;border-radius:2px;font-weight:600;}
+.purpose{font-style:italic;color:var(--ink-soft);font-size:14.5px;margin:6px 0 14px;padding-left:14px;border-left:2px solid var(--rule);}
+.section-block ul{margin:10px 0 14px;padding-left:20px;}
+.section-block li{margin-bottom:5px;font-size:15px;}
+.section-block p{font-size:15px;margin:8px 0;}
+.section-block strong{font-weight:700;}
+.formula{font-family:'JetBrains Mono',monospace;font-size:14px;background:var(--paper-2);padding:10px 14px;display:inline-block;}
+table.adv{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:14px;}
+table.adv caption{text-align:left;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);margin-bottom:8px;}
+table.adv th{text-align:left;padding:8px 12px;font-family:'Inter',sans-serif;font-weight:700;border-bottom:2px solid var(--ink);font-size:13px;}
+table.adv th.adv-col{color:var(--ao2);} table.adv th.dis-col{color:var(--ao4);}
+table.adv td{padding:8px 12px;border-bottom:1px solid var(--rule);vertical-align:top;}
+table.simple{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:14px;}
+table.simple th{text-align:left;padding:8px 12px;border-bottom:2px solid var(--ink);font-size:13px;}
+table.simple td{padding:8px 12px;border-bottom:1px solid var(--rule);}
+.keyterms{background:var(--paper-2);border:1px solid var(--rule);padding:20px 22px;margin-top:30px;}
+.keyterms h4{font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px;}
+.keyterms table{width:100%;border-collapse:collapse;font-size:14px;}
+.keyterms td{padding:6px 8px;border-bottom:1px dashed var(--rule);}
+.keyterms td:first-child{font-weight:700;width:38%;}
+.fc-controls{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;flex-wrap:wrap;gap:12px;}
+.fc-filters{display:flex;gap:8px;flex-wrap:wrap;}
+.fc-filters button{font-family:'JetBrains Mono',monospace;font-size:12px;padding:7px 12px;border:1px solid var(--ink);background:transparent;cursor:pointer;border-radius:2px;}
+.fc-filters button.on{background:var(--ink);color:var(--paper);}
+.fc-counter{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft);}
+.fc-stats{display:flex;gap:14px;font-family:'JetBrains Mono',monospace;font-size:11px;margin-bottom:14px;}
+.fc-stats span{display:flex;align-items:center;gap:5px;}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+.card-stage{display:flex;flex-direction:column;align-items:center;gap:18px;}
+.flip-card{width:100%;max-width:520px;height:240px;perspective:1400px;cursor:pointer;}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s cubic-bezier(.2,.7,.3,1);transform-style:preserve-3d;}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg);}
+.face{position:absolute;inset:0;border:2px solid var(--ink);border-radius:4px;display:flex;flex-direction:column;justify-content:center;padding:28px 30px;backface-visibility:hidden;background:var(--paper);}
+.face.back{transform:rotateY(180deg);background:var(--ink);color:var(--paper);}
+.face-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+.face.back .face-label{color:#A89D87;}
+.face-text{font-family:'Fraunces',serif;font-size:21px;font-weight:600;line-height:1.3;}
+.face-hint{position:absolute;bottom:14px;right:18px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);}
+.face.back .face-hint{color:#8a8071;}
+.rate-row{display:none;gap:10px;width:100%;max-width:520px;}
+.rate-row.show{display:flex;}
+.rate-btn{flex:1;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;padding:13px 8px;border:2px solid;border-radius:4px;background:transparent;cursor:pointer;text-align:center;letter-spacing:.02em;}
+.rate-btn.red{color:var(--red);border-color:var(--red);}
+.rate-btn.red:hover{background:var(--red);color:var(--paper);}
+.rate-btn.amber{color:var(--amber);border-color:var(--amber);}
+.rate-btn.amber:hover{background:var(--amber);color:var(--paper);}
+.rate-btn.green{color:var(--green);border-color:var(--green);}
+.rate-btn.green:hover{background:var(--green);color:var(--paper);}
+.fc-nav{display:flex;gap:14px;align-items:center;}
+.fc-nav button{font-family:'JetBrains Mono',monospace;font-size:13px;padding:9px 18px;border:1px solid var(--ink);background:transparent;cursor:pointer;border-radius:2px;}
+.fc-nav button:hover{background:var(--ink);color:var(--paper);}
+.fc-section-pill{font-family:'JetBrains Mono',monospace;font-size:11px;padding:4px 10px;border-radius:10px;color:var(--paper);}
+.deck-done{text-align:center;padding:60px 20px;font-family:'Fraunces',serif;font-size:20px;}
+.q-card{border:1px solid var(--ink);margin-bottom:18px;background:var(--paper);}
+.q-head{padding:18px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;}
+.q-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-soft);margin-bottom:6px;letter-spacing:.04em;}
+.q-scenario{font-size:13px;color:var(--ink-soft);font-style:italic;margin-bottom:8px;}
+.q-text{font-family:'Fraunces',serif;font-size:17px;font-weight:600;}
+.q-marks{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;border:1px solid var(--ink);padding:4px 10px;white-space:nowrap;flex-shrink:0;}
+.q-toggle{font-size:20px;flex-shrink:0;color:var(--ink-soft);}
+.q-body{display:none;padding:4px 20px 24px;border-top:1px dashed var(--rule);}
+.q-card.open .q-body{display:block;}
+.q-card.open .q-toggle{transform:rotate(45deg);}
+.model-label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft);margin:16px 0 8px;}
+.model-answer{font-size:15px;line-height:1.65;}
+.ao-stamps{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
+.stamp{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;border:2px solid;border-radius:50%;width:64px;height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(-6deg);line-height:1.15;}
+.stamp small{font-weight:400;font-size:9px;}
+.stamp.ao1{color:var(--ao1);border-color:var(--ao1);} .stamp.ao2{color:var(--ao2);border-color:var(--ao2);}
+.stamp.ao3{color:var(--ao3);border-color:var(--ao3);} .stamp.ao4{color:var(--ao4);border-color:var(--ao4);}
+@media(max-width:600px){.big-num{font-size:64px;} .flip-card{height:280px;} .q-head{flex-direction:column;} .rate-row{flex-direction:column;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="masthead">
+    <div class="eyebrow">EDEXCEL IAL BUSINESS &middot; UNIT 2 &middot; MANAGING BUSINESS ACTIVITIES</div>
+    <div class="title-row">
+      <div class="big-num">2.2</div>
+      <div class="title-text">Financial Planning</div>
+    </div>
+    <div class="subline">Costs &amp; revenue &middot; Break-even &middot; Cash flow forecasting &middot; Budgets</div>
+    <div class="chnav"><a href="index.html">&larr; Home</a><a class="" href="1.1-meeting-customer-needs.html">1.1</a><a class="" href="1.2-the-market.html">1.2</a><a class="" href="1.3-marketing-mix-strategy.html">1.3</a><a class="" href="1.4-managing-people.html">1.4</a><a class="" href="1.5-entrepreneurs-leaders.html">1.5</a><a class="" href="2.1-planning-raising-finance.html">2.1</a><a class="cur" href="2.2-financial-planning.html">2.2</a><a class="" href="2.3-managing-finance.html">2.3</a><a class="" href="2.4-resource-management.html">2.4</a><a class="" href="2.5-external-influences.html">2.5</a></div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-panel="notes"><span class="tnum">01</span>Notes</button>
+    <button class="tab" data-panel="flashcards"><span class="tnum">02</span>Flashcards</button>
+    <button class="tab" data-panel="practice"><span class="tnum">03</span>Practice</button>
+  </div>
+
+  <div class="panel active" id="panel-notes">
+    <div class="subnav" id="subnav"><button class="on" data-target="s1">2.2.1-2 Costs &amp; Break-even</button><button class="" data-target="s2">2.2.3-4 Cash Flow &amp; Budgets</button></div>
+    <div id="s1" style="display:block;">
+<div class="section-block"><h3>Costs &amp; Revenue <span class="tag">AO1</span></h3>
+<p class="purpose">To understand the building blocks needed to calculate profit and plan pricing/output decisions.</p>
+<table class="simple"><tr><th>Term</th><th>Definition</th></tr>
+<tr><td>Fixed costs</td><td>Costs that don't change with output (e.g. rent)</td></tr>
+<tr><td>Variable costs</td><td>Costs that change directly with output (e.g. raw materials)</td></tr>
+<tr><td>Total costs</td><td>Fixed costs + Variable costs</td></tr>
+<tr><td>Revenue</td><td>Price &times; Quantity sold</td></tr>
+<tr><td>Contribution per unit</td><td>Selling price &minus; Variable cost per unit</td></tr></table></div>
+
+<div class="section-block"><h3>Break-Even Analysis <span class="tag">AO2</span></h3>
+<p class="purpose">To identify the level of output at which total revenue equals total costs, so a business knows the minimum it must sell to avoid a loss.</p>
+<p class="formula">Break-even output = Fixed costs &divide; Contribution per unit</p>
+<svg viewBox="0 0 400 280" style="width:100%;max-width:420px;display:block;margin:14px 0;border:1px solid var(--rule);background:#fff;">
+  <line x1="50" y1="20" x2="50" y2="240" stroke="#1A1815" stroke-width="2"/>
+  <line x1="50" y1="240" x2="380" y2="240" stroke="#1A1815" stroke-width="2"/>
+  <text x="10" y="20" font-family="JetBrains Mono, monospace" font-size="10" fill="#544E45">Cost / Revenue ($)</text>
+  <text x="330" y="258" font-family="JetBrains Mono, monospace" font-size="10" fill="#544E45">Output (units)</text>
+  <line x1="50" y1="200" x2="370" y2="200" stroke="#A8721C" stroke-width="2.5"/>
+  <text x="372" y="203" font-family="JetBrains Mono, monospace" font-size="10" fill="#A8721C">Fixed Costs</text>
+  <line x1="50" y1="200" x2="370" y2="60" stroke="#C0341F" stroke-width="2.5"/>
+  <text x="318" y="55" font-family="JetBrains Mono, monospace" font-size="10" fill="#C0341F">Total Costs</text>
+  <line x1="50" y1="240" x2="370" y2="40" stroke="#1F4E5F" stroke-width="2.5"/>
+  <text x="320" y="35" font-family="JetBrains Mono, monospace" font-size="10" fill="#1F4E5F">Total Revenue</text>
+  <circle cx="225" cy="128" r="4" fill="#1A1815"/>
+  <line x1="225" y1="128" x2="225" y2="240" stroke="#1A1815" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="170" y="120" font-family="'Fraunces',serif" font-size="12" font-weight="700" fill="#1A1815">Break-even point</text>
+  <text x="215" y="252" font-family="JetBrains Mono, monospace" font-size="9" fill="#544E45">Qbe</text>
+</svg>
+<p>To the left of break-even = loss (costs exceed revenue). To the right = profit (revenue exceeds costs).</p>
+<table class="adv"><caption>Using break-even analysis</caption><tr><th class="adv-col">Advantages</th><th class="dis-col">Drawbacks</th></tr>
+<tr><td>Shows the minimum sales needed to avoid a loss</td><td>Assumes all output is sold — ignores unsold stock</td></tr>
+<tr><td>Helps set sales targets and assess new venture viability</td><td>Assumes costs/prices stay constant, which is rarely true</td></tr>
+<tr><td>Useful for securing finance — shows lenders viability</td><td>Doesn't account for non-linear cost changes (e.g. bulk discounts)</td></tr></table></div>
+</div><div id="s2" style="display:none;">
+<div class="section-block"><h3>Cash Flow Forecasting <span class="tag">AO2</span></h3>
+<p class="purpose">To predict the timing of cash inflows and outflows, so a business can identify potential cash shortages before they happen — even a profitable business can fail if it runs out of cash.</p>
+<svg viewBox="0 0 400 220" style="width:100%;max-width:420px;display:block;margin:14px 0;border:1px solid var(--rule);background:#fff;">
+  <line x1="40" y1="120" x2="370" y2="120" stroke="#1A1815" stroke-width="1.5"/>
+  <text x="10" y="124" font-family="JetBrains Mono, monospace" font-size="9" fill="#544E45">$0</text>
+  <g font-family="JetBrains Mono, monospace" font-size="9" fill="#2F6B3A">
+    <rect x="60" y="80" width="34" height="40" fill="#2F6B3A" opacity="0.15" stroke="#2F6B3A"/>
+    <text x="77" y="74" text-anchor="middle">+2k</text>
+    <rect x="120" y="50" width="34" height="70" fill="#2F6B3A" opacity="0.15" stroke="#2F6B3A"/>
+    <text x="137" y="44" text-anchor="middle">+4k</text>
+    <rect x="240" y="90" width="34" height="30" fill="#2F6B3A" opacity="0.15" stroke="#2F6B3A"/>
+    <text x="257" y="84" text-anchor="middle">+1.5k</text>
+    <rect x="300" y="60" width="34" height="60" fill="#2F6B3A" opacity="0.15" stroke="#2F6B3A"/>
+    <text x="317" y="54" text-anchor="middle">+3.5k</text>
+  </g>
+  <g font-family="JetBrains Mono, monospace" font-size="9" fill="#C0341F">
+    <rect x="180" y="120" width="34" height="55" fill="#C0341F" opacity="0.15" stroke="#C0341F"/>
+    <text x="197" y="190" text-anchor="middle">-3k</text>
+  </g>
+  <g font-family="JetBrains Mono, monospace" font-size="9" fill="#544E45" text-anchor="middle">
+    <text x="77" y="205">Jan</text><text x="137" y="205">Feb</text><text x="197" y="205">Mar</text>
+    <text x="257" y="205">Apr</text><text x="317" y="205">May</text>
+  </g>
+  <text x="197" y="160" font-family="'Fraunces',serif" font-style="italic" font-size="10" fill="#C0341F" text-anchor="middle">net outflow month</text>
+</svg>
+<table class="simple"><tr><th>Term</th><th>Definition</th></tr>
+<tr><td>Cash inflow</td><td>Money coming into the business (e.g. sales receipts)</td></tr>
+<tr><td>Cash outflow</td><td>Money leaving the business (e.g. paying suppliers, wages)</td></tr>
+<tr><td>Net cash flow</td><td>Inflows &minus; Outflows for a period</td></tr>
+<tr><td>Closing balance</td><td>Opening balance + Net cash flow for the period</td></tr></table>
+<table class="adv"><caption>Using cash flow forecasts</caption><tr><th class="adv-col">Advantages</th><th class="dis-col">Drawbacks</th></tr>
+<tr><td>Identifies cash shortages in advance, allowing time to arrange finance</td><td>Based on estimates/assumptions that can be wrong</td></tr>
+<tr><td>Required by banks when applying for a loan/overdraft</td><td>Doesn't show profitability, only cash timing</td></tr></table></div>
+
+<div class="section-block"><h3>Budgets <span class="tag">AO1</span></h3>
+<p class="purpose">To set financial targets for income and expenditure, helping control spending and measure performance against a plan.</p>
+<table class="simple"><tr><th>Type</th><th>Description</th></tr>
+<tr><td>Income budget</td><td>Target for sales/revenue over a period</td></tr>
+<tr><td>Expenditure budget</td><td>Planned spending limit over a period</td></tr>
+<tr><td>Variance</td><td>The difference between budgeted and actual figures (favourable or adverse)</td></tr></table>
+
+<div class="keyterms"><h4>Key terms to know cold</h4><table>
+<tr><td>Fixed costs</td><td>Costs that don't change with output</td></tr>
+<tr><td>Variable costs</td><td>Costs that change directly with output</td></tr>
+<tr><td>Contribution per unit</td><td>Selling price minus variable cost per unit</td></tr>
+<tr><td>Break-even output</td><td>The output level where total revenue equals total costs</td></tr>
+<tr><td>Net cash flow</td><td>Cash inflows minus cash outflows for a period</td></tr>
+<tr><td>Variance</td><td>The difference between budgeted and actual figures</td></tr></table></div>
+</div>
+</div>
+  </div>
+
+  <div class="panel" id="panel-flashcards">
+    <div class="fc-controls">
+      <div class="fc-filters" id="fc-filters"><button class="on" data-sec="all">All</button><button data-sec="A">Section A</button><button data-sec="B">Section B</button><button data-sec="C">Section C</button></div>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <div class="fc-counter" id="fc-counter">Card 1</div>
+        <button id="fc-reset" style="font-family:'JetBrains Mono',monospace;font-size:11px;padding:5px 10px;border:1px solid var(--rule);background:transparent;cursor:pointer;color:var(--ink-soft);border-radius:2px;">Reset progress</button>
+      </div>
+    </div>
+    <div class="fc-stats">
+      <span><span class="dot" style="background:var(--red)"></span>Not remembered: <b id="cnt-red">0</b></span>
+      <span><span class="dot" style="background:var(--amber)"></span>Partial: <b id="cnt-amber">0</b></span>
+      <span><span class="dot" style="background:var(--green)"></span>Mastered: <b id="cnt-green">0</b></span>
+    </div>
+    <div class="card-stage" id="card-stage">
+      <div class="flip-card" id="flip-card">
+        <div class="flip-inner">
+          <div class="face front">
+            <div class="face-label">Question</div>
+            <div class="face-text" id="fc-front">—</div>
+            <div class="face-hint">click to flip</div>
+          </div>
+          <div class="face back">
+            <div class="face-label">Answer</div>
+            <div class="face-text" id="fc-back">—</div>
+            <div class="face-hint">rate your recall below</div>
+          </div>
+        </div>
+      </div>
+      <div class="rate-row" id="rate-row">
+        <button class="rate-btn red" data-r="red">Not remembered</button>
+        <button class="rate-btn amber" data-r="amber">Partially remembered</button>
+        <button class="rate-btn green" data-r="green">Fully remembered</button>
+      </div>
+      <div class="fc-nav">
+        <button id="fc-prev">&larr; Skip back</button>
+        <span class="fc-section-pill" id="fc-pill" style="background:var(--ink);">A</span>
+        <button id="fc-skip">Skip &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" id="panel-practice">
+    <div id="practice-list"></div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.tab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById('panel-'+t.dataset.panel).classList.add('active');
+  });
+});
+
+const subnavTargets = ["s1", "s2"];
+document.querySelectorAll('#subnav button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('#subnav button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    subnavTargets.forEach(id=>document.getElementById(id).style.display='none');
+    document.getElementById(b.dataset.target).style.display='block';
+  });
+});
+
+/* ---------- FLASHCARDS with self-rating queue + persistence ---------- */
+const STORAGE_KEY = 'biz_revision_2_2_progress';
+const allCards = [{"sec": "A", "f": "What are fixed costs?", "b": "Costs that don't change with output, e.g. rent."}, {"sec": "A", "f": "What are variable costs?", "b": "Costs that change directly with output, e.g. raw materials."}, {"sec": "A", "f": "How do you calculate total costs?", "b": "Fixed costs + Variable costs."}, {"sec": "A", "f": "How do you calculate revenue?", "b": "Price \u00d7 Quantity sold."}, {"sec": "A", "f": "What is contribution per unit?", "b": "Selling price minus variable cost per unit."}, {"sec": "A", "f": "Formula for break-even output.", "b": "Fixed costs \u00f7 Contribution per unit"}, {"sec": "A", "f": "What happens to the left of the break-even point on the chart?", "b": "The business makes a loss (costs exceed revenue)."}, {"sec": "A", "f": "What happens to the right of the break-even point on the chart?", "b": "The business makes a profit (revenue exceeds costs)."}, {"sec": "A", "f": "What is a cash inflow?", "b": "Money coming into the business, e.g. sales receipts."}, {"sec": "A", "f": "What is a cash outflow?", "b": "Money leaving the business, e.g. paying suppliers or wages."}, {"sec": "A", "f": "How do you calculate net cash flow?", "b": "Cash inflows minus cash outflows for a period."}, {"sec": "A", "f": "How do you calculate closing balance?", "b": "Opening balance + Net cash flow for the period."}, {"sec": "A", "f": "What is a budget?", "b": "A financial target for income or expenditure over a period."}, {"sec": "A", "f": "What is variance?", "b": "The difference between budgeted and actual figures."}, {"sec": "B", "f": "One advantage of break-even analysis?", "b": "Shows the minimum sales needed to avoid a loss."}, {"sec": "B", "f": "One drawback of break-even analysis?", "b": "Assumes all output is sold, ignoring unsold stock."}, {"sec": "B", "f": "One advantage of cash flow forecasting?", "b": "Identifies cash shortages in advance, allowing time to arrange finance."}, {"sec": "B", "f": "One drawback of cash flow forecasting?", "b": "Based on estimates/assumptions that can turn out wrong."}, {"sec": "C", "f": "Why is break-even analysis useful when starting a new venture?", "b": "It shows whether the venture is realistically viable before committing resources."}, {"sec": "C", "f": "Why might a bank require a cash flow forecast before lending?", "b": "To check the business can realistically manage repayments given its cash timing."}, {"sec": "C", "f": "Why do businesses use budgets?", "b": "To control spending and measure performance against a financial target."}];
+allCards.forEach((c,i)=>{c.id=i; c.status='unrated';});
+
+function loadProgress(){
+  try{
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    allCards.forEach(c=>{ if(saved[c.id]) c.status = saved[c.id]; });
+  }catch(e){}
+}
+function saveProgress(){
+  try{
+    const data = {};
+    allCards.forEach(c=>{ if(c.status!=='unrated') data[c.id]=c.status; });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }catch(e){}
+}
+loadProgress();
+
+let queue = allCards.map(c=>c.id);
+let activeFilter = 'all';
+let pos = 0;
+let flipped = false;
+
+const secColors = {A:'#1F4E5F',B:'#A8721C',C:'#2F6B3A',all:'#1A1815'};
+
+function getQueue(){
+  const base = activeFilter==='all' ? allCards : allCards.filter(c=>c.sec===activeFilter);
+  return base.filter(c=>c.status!=='green').map(c=>c.id);
+}
+
+function updateStats(){
+  document.getElementById('cnt-red').textContent = allCards.filter(c=>c.status==='red').length;
+  document.getElementById('cnt-amber').textContent = allCards.filter(c=>c.status==='amber').length;
+  document.getElementById('cnt-green').textContent = allCards.filter(c=>c.status==='green').length;
+}
+
+function renderCard(){
+  if(queue.length===0){
+    document.getElementById('card-stage').innerHTML = '<div class="deck-done">All cards in this set are mastered. 🎉<br><span style="font-family:JetBrains Mono;font-size:12px;color:var(--ink-soft);">Your progress is saved. Use "Reset progress" above to start over.</span></div>';
+    return;
+  }
+  const c = allCards[queue[0]];
+  document.getElementById('fc-front').textContent = c.f;
+  document.getElementById('fc-back').textContent = c.b;
+  document.getElementById('fc-counter').textContent = `${queue.length} card(s) left in this session`;
+  document.getElementById('fc-pill').textContent = c.sec;
+  document.getElementById('fc-pill').style.background = secColors[c.sec];
+  document.getElementById('flip-card').classList.remove('flipped');
+  document.getElementById('rate-row').classList.remove('show');
+  flipped = false;
+  updateStats();
+}
+
+document.getElementById('flip-card').addEventListener('click',()=>{
+  if(queue.length===0) return;
+  flipped = !flipped;
+  document.getElementById('flip-card').classList.toggle('flipped');
+  if(flipped){ document.getElementById('rate-row').classList.add('show'); }
+  else{ document.getElementById('rate-row').classList.remove('show'); }
+});
+
+document.getElementById('rate-row').addEventListener('click', e=>{
+  const btn = e.target.closest('.rate-btn');
+  if(!btn || queue.length===0) return;
+  const rating = btn.dataset.r;
+  const cardId = queue.shift();
+  allCards[cardId].status = rating;
+  saveProgress();
+  if(rating==='red'){
+    queue.splice(Math.min(2,queue.length),0,cardId); // show again very soon
+  } else if(rating==='amber'){
+    queue.splice(Math.min(6,queue.length),0,cardId); // show again later
+  } // green: removed from session queue entirely
+  renderCard();
+});
+
+document.getElementById('fc-reset').addEventListener('click',()=>{
+  if(!confirm('Reset all flashcard progress for this chapter?')) return;
+  allCards.forEach(c=>c.status='unrated');
+  localStorage.removeItem(STORAGE_KEY);
+  activeFilter='all';
+  document.querySelectorAll('#fc-filters button').forEach(x=>x.classList.remove('on'));
+  document.querySelector('#fc-filters button[data-sec="all"]').classList.add('on');
+  queue = getQueue();
+  renderCard();
+});
+
+document.getElementById('fc-skip').addEventListener('click',()=>{
+  if(queue.length===0) return;
+  const cardId = queue.shift();
+  queue.push(cardId);
+  renderCard();
+});
+document.getElementById('fc-prev').addEventListener('click',()=>{
+  if(queue.length===0) return;
+  const cardId = queue.pop();
+  queue.unshift(cardId);
+  renderCard();
+});
+
+document.getElementById('fc-filters').addEventListener('click', e=>{
+  const btn = e.target.closest('button');
+  if(!btn) return;
+  document.querySelectorAll('#fc-filters button').forEach(x=>x.classList.remove('on'));
+  btn.classList.add('on');
+  activeFilter = btn.dataset.sec;
+  queue = getQueue();
+  renderCard();
+});
+
+queue = getQueue();
+renderCard();
+
+/* ---------- PRACTICE QUESTIONS ---------- */
+const questions = [{"word": "CALCULATE", "marks": "4 marks", "scenario": "Maple Bakery has fixed costs of $20,000 per year. Each cake sells for $25 and costs $10 in ingredients to make.", "q": "Calculate Maple Bakery's break-even output in units.", "a": "Break-even = Fixed costs \u00f7 Contribution per unit. Contribution per unit = $25 \u2212 $10 = $15. Break-even = $20,000 \u00f7 $15 = 1,333 units (rounded).", "ao": [{"c": "ao1", "l": "AO1", "m": "4"}]}, {"word": "EXPLAIN", "marks": "4 marks", "scenario": "Quickserve Caf\u00e9 uses a cash flow forecast before approaching the bank for a loan to renovate.", "q": "Explain one reason why Quickserve Caf\u00e9 might use a cash flow forecast before applying for a loan.", "a": "One reason is to demonstrate to the bank that repayments are manageable. (Point) By forecasting monthly inflows and outflows, Quickserve can show expected cash positions across the year. (Example/Scenario) This is because banks want evidence the business can realistically meet repayment obligations. (Explain) This increases the likelihood of loan approval. (Link)", "ao": [{"c": "ao1", "l": "AO1", "m": "1"}, {"c": "ao2", "l": "AO2", "m": "3"}]}, {"word": "ANALYSE", "marks": "6 marks", "scenario": "Velocity Gym set a sales budget of $50,000 for the quarter but achieved only $42,000.", "q": "Analyse the implications for Velocity Gym of this budget variance.", "a": "This is an adverse variance of $8,000. (Point/Example) This suggests either weaker-than-expected demand or an overly optimistic original budget, both of which need investigating. (Explain) A second implication is that Velocity Gym may need to revise spending plans if expected income doesn't materialise as budgeted, to avoid a cash shortfall. (Explain/Link)", "ao": [{"c": "ao1", "l": "AO1", "m": "2"}, {"c": "ao2", "l": "AO2", "m": "2"}, {"c": "ao3", "l": "AO3", "m": "2"}]}, {"word": "DISCUSS", "marks": "8 marks", "scenario": "Lumen Electronics is deciding whether to lower its selling price to boost sales volume, which would reduce contribution per unit but could increase total output sold.", "q": "Discuss whether Lumen Electronics should lower its selling price.", "a": "Lowering price could increase sales volume, potentially raising total revenue if demand is responsive. However, lower contribution per unit raises the break-even output needed, meaning Lumen must sell significantly more just to cover the same fixed costs. Given the increased break-even risk, Lumen should model the new break-even point carefully before committing to a price cut.", "ao": [{"c": "ao1", "l": "AO1", "m": "2"}, {"c": "ao2", "l": "AO2", "m": "2"}, {"c": "ao3", "l": "AO3", "m": "2"}, {"c": "ao4", "l": "AO4", "m": "2"}]}, {"word": "ASSESS", "marks": "10 marks", "scenario": "Northstar Logistics' cash flow forecast shows a cash shortfall in month 4 due to a large supplier payment, despite the business being profitable overall for the year.", "q": "Assess how Northstar Logistics should respond to the forecasted month 4 cash shortfall.", "a": "Arranging a short-term overdraft would cover the shortfall without disrupting operations, but incurs interest cost. Negotiating extended trade credit with the supplier could avoid the shortfall entirely at no direct cost, but depends on the supplier's willingness. Delaying the supplier payment without agreement risks damaging the relationship and future credit terms. Judgement: negotiating extended credit terms first is the lowest-cost, lowest-risk option, with an overdraft as a backup if negotiation fails.", "ao": [{"c": "ao1", "l": "AO1", "m": "2"}, {"c": "ao2", "l": "AO2", "m": "2"}, {"c": "ao3", "l": "AO3", "m": "3"}, {"c": "ao4", "l": "AO4", "m": "3"}]}, {"word": "EVALUATE", "marks": "20 marks", "scenario": "Orbit Toys, a profitable seasonal toy manufacturer, experiences large cash outflows in summer (stock production) before sales revenue arrives in winter. The board is debating whether to take out a seasonal overdraft facility or to build up a larger cash reserve during winter to self-fund summer production instead.", "q": "Evaluate whether Orbit Toys should rely on a seasonal overdraft or build up its own cash reserve.", "a": "Argument 1: a seasonal overdraft provides flexible, only-when-needed finance without tying up cash the rest of the year. Counter: overdraft interest charges recur every year, becoming a permanent cost that reduces overall profitability over time. Argument 2: building a cash reserve avoids interest costs entirely and gives Orbit full control without needing the bank's ongoing approval. Counter: this requires deliberately retaining profit rather than distributing or reinvesting it, which could slow other areas of growth. Judgement: given this is a recurring, predictable seasonal pattern (not a one-off), building an internal cash reserve over multiple years is more cost-effective long-term, even though it requires short-term discipline, since it eliminates a recurring interest cost that an overdraft would otherwise create indefinitely.", "ao": [{"c": "ao1", "l": "AO1", "m": "4"}, {"c": "ao2", "l": "AO2", "m": "5"}, {"c": "ao3", "l": "AO3", "m": "6"}, {"c": "ao4", "l": "AO4", "m": "5"}]}];
+const list = document.getElementById('practice-list');
+questions.forEach((qd,i)=>{
+  const card = document.createElement('div');
+  card.className = 'q-card';
+  card.innerHTML = `
+    <div class="q-head">
+      <div>
+        <div class="q-meta">Q${i+1} &middot; ${qd.word} &middot; ${qd.marks}</div>
+        <div class="q-scenario">${qd.scenario}</div>
+        <div class="q-text">${qd.q}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+        <div class="q-marks">${qd.marks}</div>
+        <div class="q-toggle">+</div>
+      </div>
+    </div>
+    <div class="q-body">
+      <div class="model-label">Model Answer</div>
+      <div class="model-answer">${qd.a}</div>
+      <div class="ao-stamps">
+        ${qd.ao.map(a=>`<div class="stamp ${a.c}">${a.l}<small>${a.m} mk</small></div>`).join('')}
+      </div>
+    </div>
+  `;
+  card.querySelector('.q-head').addEventListener('click',()=>{ card.classList.toggle('open'); });
+  list.appendChild(card);
+});
+</script>
+</body>
+</html>
